@@ -25,17 +25,17 @@
         .logo-sub { font-size: 17px; font-weight: 700; color: #000; display: flex; align-items: center; gap: 10px; }
         .logo-sub::before { content: ""; display: inline-block; width: 18px; height: 3px; background: var(--accent-saffron); border-radius: 2px; }
 
-        /* Navigation Menu */
+        /* Dropdown Navigation */
         .day-menu-container { display: flex; gap: 8px; }
         .dropdown { position: relative; display: inline-block; }
-        .day-tab { padding: 10px 18px; border-radius: 25px; font-size: 12px; cursor: pointer; border: 1px solid var(--border-light); background: white; transition: 0.3s; text-decoration: none; color: #555; font-weight: 600; display: inline-block; }
+        .day-tab { padding: 10px 18px; border-radius: 25px; font-size: 12px; cursor: pointer; border: 1px solid var(--border-light); background: white; transition: 0.3s; text-decoration: none; color: #555; font-weight: 600; }
         .day-tab:hover { border-color: var(--accent-saffron); color: var(--accent-saffron); }
         .dropdown-content { display: none; position: absolute; background: white; min-width: 180px; box-shadow: 0px 8px 16px rgba(0,0,0,0.1); border-radius: 12px; border: 1px solid #eee; top: 100%; left: 0; margin-top: 10px; z-index: 1001; }
         .dropdown-content a { color: #444; padding: 12px 16px; text-decoration: none; display: block; font-size: 13px; border-bottom: 1px solid #f9f9f9; }
         .dropdown-content a:hover { background: #fff5eb; color: var(--accent-saffron); }
         .dropdown:hover .dropdown-content { display: block; }
 
-        /* Layout */
+        /* Sidebar */
         .app-body { display: flex; flex: 1; overflow: hidden; }
         .sidebar { width: 300px; background: var(--deep-sidebar); color: #fff; display: flex; flex-direction: column; }
         .sidebar-header { padding: 25px; border-bottom: 1px solid #333; font-size: 11px; color: #777; letter-spacing: 2px; text-transform: uppercase; font-weight: 700; }
@@ -44,27 +44,30 @@
         .nav-item:hover { background: #262626; color: #fff; }
         .nav-item.active { background: #262626; color: var(--accent-saffron); border-left: 4px solid var(--accent-saffron); font-weight: 600; }
 
-        /* Home Content Card */
+        /* Main Content */
         .main-content { flex: 1; padding: 60px; overflow-y: auto; background: var(--bg-main); display: flex; justify-content: center; }
-        .home-card { background: var(--card-white); border-radius: 24px; padding: 50px; box-shadow: 0 10px 40px rgba(0,0,0,0.05); border: 1px solid #eee; max-width: 850px; height: fit-content; }
+        .home-card { background: var(--card-white); border-radius: 24px; padding: 50px; box-shadow: 0 10px 40px rgba(0,0,0,0.05); border: 1px solid #eee; max-width: 850px; height: fit-content; width: 100%; }
         
+        /* Content Switching Logic */
+        .content-block { display: none; }
+        .content-block.active { display: block; animation: fadeIn 0.4s ease-out; }
+
         h1 { font-size: 38px; color: #1a1a1a; margin-bottom: 10px; line-height: 1.2; letter-spacing: -1px; }
         .subtitle { font-size: 20px; color: var(--accent-saffron); margin-bottom: 30px; font-weight: 600; }
         p { line-height: 1.8; font-size: 17.5px; color: #444; margin-bottom: 25px; }
         .iast { font-family: 'Georgia', serif; font-style: italic; color: #c0392b; font-weight: 600; }
 
-        /* Action Buttons */
+        /* Components */
         .cta-container { display: flex; gap: 20px; margin-top: 40px; }
         .primary-btn { background: var(--accent-saffron); color: white; padding: 18px 35px; border-radius: 12px; text-decoration: none; font-weight: 800; font-size: 16px; transition: 0.3s; box-shadow: 0 10px 20px rgba(255,153,51,0.2); }
-        .primary-btn:hover { transform: translateY(-3px); box-shadow: 0 15px 25px rgba(255,153,51,0.3); }
-        .secondary-btn { border: 2px solid #ddd; color: #555; padding: 16px 30px; border-radius: 12px; text-decoration: none; font-weight: 700; font-size: 16px; transition: 0.3s; }
-        .secondary-btn:hover { border-color: var(--accent-saffron); color: var(--accent-saffron); }
-        
-        /* Syllabus List */
+        .secondary-btn { border: 2px solid #ddd; color: #555; padding: 16px 30px; border-radius: 12px; text-decoration: none; font-weight: 700; font-size: 16px; }
+
         .syllabus-preview { margin-top: 45px; padding-top: 35px; border-top: 2px solid #f4f4f4; display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
         .preview-header { grid-column: 1 / -1; font-size: 12px; text-transform: uppercase; letter-spacing: 2px; color: #999; font-weight: 700; margin-bottom: 15px; }
         .list-item { display: flex; align-items: flex-start; gap: 12px; font-size: 15px; color: #555; line-height: 1.4; }
         .list-item span { color: var(--accent-saffron); font-weight: 900; }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
     </style>
 </head>
 <body>
@@ -103,41 +106,71 @@
 <div class="app-body">
     <div class="sidebar">
         <div class="sidebar-header">Resource Navigation</div>
-        <div class="nav-list">
-            <div class="nav-item active">Welcome Note</div>
-            <div class="nav-item">Core Philosophy Index</div>
-            <div class="nav-item">IAST Pronunciation Guide</div>
-            <div class="nav-item">The Ṣaḍguṇa Attributes</div>
-            <div class="nav-item">Healing Mantras Archive</div>
+        <div class="nav-list" id="sidebarNav">
+            <div class="nav-item active" onclick="showSection('welcome')">Welcome Note</div>
+            <div class="nav-item" onclick="showSection('philosophy')">Core Philosophy Index</div>
+            <div class="nav-item" onclick="showSection('pronunciation')">IAST Pronunciation Guide</div>
         </div>
     </div>
 
     <div class="main-content">
         <div class="home-card">
-            <h1>Spiritual Knowledge Portal</h1>
-            <div class="subtitle">Complete Archive of the Thousand Names</div>
             
-            <p>Welcome to the <strong>VISVAS B</strong> discourse archive. We have transitioned from the preliminary <em>Dhyāna Ślokas</em> into the profound study of the thousand names, beginning with the cosmic substance of <span class="iast">Viśvam</span> and the all-pervasive nature of <span class="iast">Viṣṇu</span>.</p>
-            
-            <p>This digital repository features the systematic teachings of <span class="iast">Shri. Ramabhadran V Guruji</span>, exploring the three pillars of Indian philosophy—Advaita, Viśiṣṭādvaita, and Dvaita—and their unique perspectives on the Supreme Truth.</p>
-
-            <div class="cta-container">
-                <a href="day2.html" class="primary-btn">Start from the Beginning →</a>
-                <a href="day7.html" class="secondary-btn">Jump to Latest Session</a>
+            <div id="welcome" class="content-block active">
+                <h1>Spiritual Knowledge Portal</h1>
+                <div class="subtitle">Complete Archive of the Thousand Names</div>
+                <p>Welcome to the <strong>VISVAS B</strong> discourse archive. We have transitioned from the preliminary <em>Dhyāna Ślokas</em> into the profound study of the thousand names, beginning with the cosmic substance of <span class="iast">Viśvam</span>.</p>
+                <div class="cta-container">
+                    <a href="day2.html" class="primary-btn">Start from Day 2 →</a>
+                    <a href="day7.html" class="secondary-btn">Latest: Day 7</a>
+                </div>
+                <div class="syllabus-preview">
+                    <div class="preview-header">Current Progress</div>
+                    <div class="list-item"><span>•</span> Preliminary Mantra Analysis</div>
+                    <div class="list-item"><span>•</span> The 24-Syllable Gayatri Connection</div>
+                    <div class="list-item"><span>•</span> The "Three Births" of Jaya & Vijaya</div>
+                    <div class="list-item"><span>•</span> First 24 Names Analysis</div>
+                </div>
             </div>
 
-            <div class="syllabus-preview">
-                <div class="preview-header">Current Curriculum Progress</div>
-                <div class="list-item"><span>•</span> Preliminary Mantra Analysis (Days 2-5)</div>
-                <div class="list-item"><span>•</span> The 24-Syllable Gayatri Connection</div>
-                <div class="list-item"><span>•</span> First 24 Names & Philosophical Root Analysis</div>
-                <div class="list-item"><span>•</span> The "Three Births" of Jaya and Vijaya</div>
-                <div class="list-item"><span>•</span> The "Acyuta-Ananta-Govinda" Healing Triad</div>
-                <div class="list-item"><span>•</span> Avatāra Logic: Narasiṃha & Śrī Rāma</div>
+            <div id="philosophy" class="content-block">
+                <h1>Core Philosophy Index</h1>
+                <div class="subtitle">The Three Pillars of Interpretation</div>
+                <p>Guruji explains the Names through three distinct traditional lens:</p>
+                <ul>
+                    <li><strong>Advaita:</strong> Seeing the Lord as the non-dual ultimate reality.</li>
+                    <li><strong>Viśiṣṭādvaita:</strong> Exploring the relationship between the body and soul (<em>Śarīra-Śarīrī</em>).</li>
+                    <li><strong>Dvaita:</strong> Understanding the eternal service of the individual soul to the Supreme.</li>
+                </ul>
             </div>
+
+            <div id="pronunciation" class="content-block">
+                <h1>IAST Pronunciation Guide</h1>
+                <div class="subtitle">Ensuring Vedic Accuracy</div>
+                <p>Vedic chanting requires precise phonetics. Key rules used in this syllabus:</p>
+                <p><strong>Vowels:</strong> <span class="iast">ā, ī, ū</span> are long; <span class="iast">e, o</span> are always long in Sanskrit.</p>
+                <p><strong>Dots Below:</strong> <span class="iast">ṇ, ṣ, ṭ, ḍ</span> signify retroflex sounds (tongue curled back).</p>
+                <p><strong>The Visarga:</strong> <span class="iast">ḥ</span> acts as a soft echo of the previous vowel.</p>
+            </div>
+
         </div>
     </div>
 </div>
 
+<script>
+    function showSection(id) {
+        // Switch Content
+        const blocks = document.querySelectorAll('.content-block');
+        blocks.forEach(b => b.classList.remove('active'));
+        document.getElementById(id).classList.add('active');
+
+        // Switch Sidebar Active Class
+        const navItems = document.querySelectorAll('.nav-item');
+        navItems.forEach(item => item.classList.remove('active'));
+        
+        const activeItem = Array.from(navItems).find(i => i.getAttribute('onclick').includes(id));
+        if (activeItem) activeItem.classList.add('active');
+    }
+</script>
 </body>
 </html>
