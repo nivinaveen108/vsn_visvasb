@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Viṣṇu Sahasranāma VISVAS B Syllabus</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --accent-saffron: #FF9933;
+            --deep-sidebar: #1a1a1a;
+            --text-primary: #2c3e50;
+            --bg-main: #F7F8FA;
+            --card-white: #ffffff;
+            --border-light: #e0e0e0;
+        }
+
+        body { font-family: 'Inter', sans-serif; margin: 0; display: flex; flex-direction: column; height: 100vh; background: var(--bg-main); color: var(--text-primary); overflow: hidden; }
+
+        /* Top Bar - Consistent Branding */
+        .top-bar { height: 90px; background: #fff; border-bottom: 3px solid var(--accent-saffron); display: flex; align-items: center; padding: 0 40px; justify-content: space-between; z-index: 1000; box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
+        .logo-area { text-decoration: none; display: flex; flex-direction: column; gap: 4px; }
+        .logo-main { font-weight: 800; font-size: 19px; color: var(--deep-sidebar); letter-spacing: -0.3px; }
+        .logo-main span { color: var(--accent-saffron); }
+        .logo-sub { font-size: 17px; font-weight: 700; color: #000; display: flex; align-items: center; gap: 10px; }
+        .logo-sub::before { content: ""; display: inline-block; width: 18px; height: 3px; background: var(--accent-saffron); border-radius: 2px; }
+
+        /* Navigation Menu */
+        .day-menu-container { display: flex; gap: 12px; }
+        .dropdown { position: relative; display: inline-block; }
+        .day-tab { padding: 10px 24px; border-radius: 25px; font-size: 13px; cursor: pointer; border: 1px solid var(--border-light); background: white; transition: 0.3s; text-decoration: none; color: #555; font-weight: 600; display: inline-block; }
+        .day-tab:hover { border-color: var(--accent-saffron); color: var(--accent-saffron); }
+        .dropdown-content { display: none; position: absolute; background: white; min-width: 200px; box-shadow: 0px 8px 16px rgba(0,0,0,0.1); border-radius: 12px; border: 1px solid #eee; top: 100%; left: 0; margin-top: 10px; z-index: 1001; }
+        .dropdown-content a { color: #444; padding: 14px 18px; text-decoration: none; display: block; font-size: 13px; border-bottom: 1px solid #f9f9f9; }
+        .dropdown-content a:hover { background: #fff5eb; color: var(--accent-saffron); }
+        .dropdown:hover .dropdown-content { display: block; }
+
+        /* Layout */
+        .app-body { display: flex; flex: 1; overflow: hidden; }
+        .sidebar { width: 300px; background: var(--deep-sidebar); color: #fff; display: flex; flex-direction: column; }
+        .sidebar-header { padding: 25px; border-bottom: 1px solid #333; font-size: 11px; color: #777; letter-spacing: 2px; text-transform: uppercase; font-weight: 700; }
+        .nav-list { overflow-y: auto; flex: 1; padding: 15px 0; }
+        .nav-item { padding: 14px 25px; cursor: pointer; font-size: 13px; color: #bbb; border-left: 4px solid transparent; transition: 0.3s; }
+        .nav-item:hover { background: #262626; color: #fff; }
+        .nav-item.active { background: #262626; color: var(--accent-saffron); border-left: 4px solid var(--accent-saffron); font-weight: 600; }
+
+        /* Home Content Card */
+        .main-content { flex: 1; padding: 60px; overflow-y: auto; background: var(--bg-main); display: flex; justify-content: center; }
+        .home-card { background: var(--card-white); border-radius: 20px; padding: 50px; box-shadow: 0 10px 40px rgba(0,0,0,0.05); border: 1px solid #eee; max-width: 800px; height: fit-content; }
+        
+        h1 { font-size: 36px; color: #1a1a1a; margin-bottom: 10px; line-height: 1.2; }
+        .subtitle { font-size: 20px; color: var(--accent-saffron); margin-bottom: 30px; font-weight: 600; }
+        p { line-height: 1.8; font-size: 17.5px; color: #444; margin-bottom: 25px; }
+        .iast { font-family: 'Georgia', serif; font-style: italic; color: #c0392b; font-weight: 600; }
+
+        /* Action Buttons */
+        .cta-container { display: flex; gap: 20px; margin-top: 40px; }
+        .primary-btn { background: var(--accent-saffron); color: white; padding: 18px 35px; border-radius: 12px; text-decoration: none; font-weight: 800; font-size: 16px; transition: 0.3s; box-shadow: 0 10px 20px rgba(255,153,51,0.2); }
+        .primary-btn:hover { transform: translateY(-3px); box-shadow: 0 15px 25px rgba(255,153,51,0.3); }
+        
+        /* Syllabus List */
+        .syllabus-preview { margin-top: 40px; padding-top: 30px; border-top: 1px solid #eee; }
+        .preview-title { font-size: 12px; text-transform: uppercase; letter-spacing: 2px; color: #999; font-weight: 700; margin-bottom: 20px; }
+        .list-item { display: flex; align-items: center; gap: 15px; margin-bottom: 12px; font-size: 15px; color: #555; }
+        .list-item span { color: var(--accent-saffron); font-weight: 900; }
+    </style>
+</head>
+<body>
+
+<div class="top-bar">
+    <a href="index.html" class="logo-area">
+        <div class="logo-main"><span>ॐ</span> Viṣṇu Sahasranāma VISVAS B Syllabus</div>
+        <div class="logo-sub">Shri. Ramabhadran V Guruji</div>
+    </a>
+    
+    <div class="day-menu-container">
+        <div class="dropdown">
+            <a href="day2.html" class="day-tab">DAY 2</a>
+            <div class="dropdown-content">
+                <a href="day2.html">View Archive</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <a href="day3.html" class="day-tab">DAY 3</a>
+            <div class="dropdown-content">
+                <a href="day3.html">View Archive</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="app-body">
+    <div class="sidebar">
+        <div class="sidebar-header">General Information</div>
+        <div class="nav-list">
+            <div class="nav-item active">Welcome Note</div>
+            <div class="nav-item">About the Syllabus</div>
+            <div class="nav-item">Contact Information</div>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <div class="home-card">
+            <h1>Digital Discourse Archive</h1>
+            <div class="subtitle">Study of the Divine Sahasranāma</div>
+            
+            <p>Welcome to the dedicated learning portal for the <span class="iast">Viṣṇu Sahasranāma</span> <strong>VISVAS B Syllabus</strong>. This archive preserves the profound discourses and teachings of <span class="iast">Shri. Ramabhadran V Guruji</span> for students and devotees worldwide.</p>
+            
+            <p>Our curriculum focuses on the deep philosophical underpinnings of each <span class="iast">nāma</span>, the correct <span class="iast">Vaidika</span> pronunciation, and the practical application of these spiritual truths in modern life.</p>
+
+            <div class="cta-container">
+                <a href="day2.html" class="primary-btn">Begin Learning: Day 2 →</a>
+            </div>
+
+            <div class="syllabus-preview">
+                <div class="preview-title">Archive Highlights</div>
+                <div class="list-item"><span>•</span> In-depth Vedic Mantra Analysis</div>
+                <div class="list-item"><span>•</span> Detailed IAST Transliteration Notes</div>
+                <div class="list-item"><span>•</span> Video Commentary on Preliminary Ślokas</div>
+                <div class="list-item"><span>•</span> Lineage and Guru Paramparā Insights</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
