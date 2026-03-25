@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 3 - Viṣṇu Sahasranāma VISVAS B</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --accent-saffron: #FF9933;
+            --deep-sidebar: #1a1a1a;
+            --text-primary: #2c3e50;
+            --bg-main: #F7F8FA;
+        }
+
+        body { font-family: 'Inter', sans-serif; margin: 0; display: flex; flex-direction: column; height: 100vh; background: var(--bg-main); color: var(--text-primary); overflow: hidden; }
+
+        /* Navigation Header */
+        .top-bar { height: 95px; background: #fff; border-bottom: 3px solid var(--accent-saffron); display: flex; align-items: center; padding: 0 40px; justify-content: space-between; z-index: 1000; box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
+        .logo-area { text-decoration: none; display: flex; flex-direction: column; gap: 4px; }
+        .logo-main { font-weight: 800; font-size: 19px; color: var(--deep-sidebar); }
+        .logo-main span { color: var(--accent-saffron); }
+        .logo-sub { font-size: 17px; font-weight: 700; color: #000; display: flex; align-items: center; gap: 10px; }
+        .logo-sub::before { content: ""; display: inline-block; width: 18px; height: 3px; background: var(--accent-saffron); border-radius: 2px; }
+
+        .day-menu-container { display: flex; gap: 12px; }
+        .day-tab { padding: 10px 24px; border-radius: 25px; font-size: 13px; cursor: pointer; border: 1px solid #e0e0e0; background: white; text-decoration: none; color: #555; font-weight: 600; }
+        .day-tab.active { background: var(--accent-saffron); color: white; border-color: var(--accent-saffron); }
+
+        /* Sidebar & Layout */
+        .app-body { display: flex; flex: 1; overflow: hidden; }
+        .sidebar { width: 380px; background: var(--deep-sidebar); color: #fff; display: flex; flex-direction: column; border-right: 1px solid #333; }
+        .sidebar-header { padding: 25px; border-bottom: 1px solid #333; font-size: 11px; color: var(--accent-saffron); letter-spacing: 2px; text-transform: uppercase; font-weight: 700; }
+        .nav-list { overflow-y: auto; flex: 1; padding: 10px 0; }
+        .nav-item { padding: 20px 25px; cursor: pointer; font-size: 14px; color: #bbb; border-left: 4px solid transparent; transition: 0.2s; border-bottom: 1px solid #252525; line-height: 1.5; }
+        .nav-item:hover { background: #262626; color: #fff; }
+        .nav-item.active { background: #262626; color: var(--accent-saffron); border-left: 4px solid var(--accent-saffron); font-weight: 700; }
+
+        /* Main Content Area */
+        .main-content { flex: 1; padding: 40px 100px; overflow-y: auto; background: var(--bg-main); scroll-behavior: smooth; }
+        .content-section { display: none; max-width: 1050px; margin: 0 auto; padding-bottom: 150px; }
+        .content-section.active { display: block; animation: fadeIn 0.4s ease-out; }
+
+        h1 { font-size: 36px; color: #1a1a1a; margin-bottom: 25px; border-bottom: 4px solid var(--accent-saffron); padding-bottom: 15px; }
+        h2 { font-size: 26px; color: var(--deep-sidebar); margin-top: 50px; margin-bottom: 25px; font-weight: 800; border-left: 6px solid var(--accent-saffron); padding-left: 20px; }
+        p { line-height: 2.1; font-size: 18px; color: #333; margin-bottom: 30px; text-align: justify; }
+        .iast { font-family: 'Georgia', serif; font-style: italic; color: #c0392b; font-weight: 600; }
+        
+        .highlight-box { background: #fff; border-radius: 18px; padding: 40px; border-left: 10px solid var(--accent-saffron); box-shadow: 0 15px 35px rgba(0,0,0,0.05); margin: 40px 0; position: relative; }
+        .analogy-label { position: absolute; top: -14px; left: 25px; background: var(--accent-saffron); color: white; padding: 5px 18px; border-radius: 5px; font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; }
+
+        ul { line-height: 2.1; font-size: 18px; color: #333; margin-bottom: 30px; }
+        li { margin-bottom: 15px; }
+
+        .video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 25px; background: #000; margin: 60px 0; box-shadow: 0 25px 50px rgba(0,0,0,0.2); }
+        .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(25px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+<body>
+
+<div class="top-bar">
+    <a href="index.html" class="logo-area">
+        <div class="logo-main"><span>ॐ</span> Viṣṇu Sahasranāma VISVAS B</div>
+        <div class="logo-sub">Shri. Ramabhadran V Guruji</div>
+    </a>
+    <div class="day-menu-container">
+        <a href="index.html" class="day-tab">HOME</a>
+        <a href="day2.html" class="day-tab">DAY 2</a>
+        <a href="day3.html" class="day-tab active">DAY 3</a>
+    </div>
+</div>
+
+<div class="app-body">
+    <div class="sidebar">
+        <div class="sidebar-header">Advanced Syllabus</div>
+        <div class="nav-list">
+            <div class="nav-item active" onclick="showPart('m1')">Kurukṣetra & Prelude Ślokas</div>
+            <div class="nav-item" onclick="showPart('m2')">Kaliyuga & The Curse of Parīkṣit</div>
+            <div class="nav-item" onclick="showPart('m3')">Śrīmad Bhāgavatam & The Divine Scribe</div>
+            <div class="nav-item" onclick="showPart('m4')">Yudhiṣṭhira’s Philosophical Inquiry</div>
+            <div class="nav-item" onclick="showPart('m5')">Bhīṣma’s Realization & Draupadī’s Laughter</div>
+            <div class="nav-item" onclick="showPart('m6')">The Supreme Dharma & The Lotus Eye</div>
+            <div class="nav-item" onclick="showPart('vid')" style="color:#ff4b2b; font-weight:bold; border-top: 1px solid #333; margin-top: 15px; padding-top: 25px;">▶ WATCH FULL VIDEO</div>
+        </div>
+    </div>
+
+    <div class="main-content" id="mainContent">
+        
+        <div id="m1" class="content-section active">
+            <h1>The Journey to Kurukṣetra and the Pūrva-ślokas</h1>
+            <p>The discourse begins with a profound travelogue through the sacred geography of India. Guruji recounts a pilgrimage to the <strong>Uttara Totādri Temple</strong>, where over 100 devotees chanted 12 <span class="iast">āvartis</span> of the stotra. This journey culminated in <strong>Kurukṣetra</strong>, the <span class="iast">Dharmakṣetra</span>, specifically at the site of the <span class="iast">śarapañjara</span>—the bed of arrows where Bhīṣma lay. Standing on this hallowed ground, the group chanted three <span class="iast">āvartis</span> with local Vedic students, connecting directly with the origin of the 1,000 names.</p>
+            
+            <div class="highlight-box">
+                <span class="analogy-label">Detailed Recap: The Prelude Ślokas (1–6)</span>
+                <p>These introductory verses establish the spiritual readiness of the seeker:</p>
+                <ul>
+                    <li><strong>Verses 1 & 2:</strong> Dedicated to <span class="iast">vighnopaśāntaye</span> (removal of obstacles). We meditate on Mahāviṣṇu, described as <span class="iast">śuklāmbaradharaṃ</span> (wearing white or sky-clad) and <span class="iast">prasannavadanaṃ</span> (radiating a serene, benign face). Guruji identifies the <span class="iast">adhikam</span> (obstacles) as <strong>Ādhyātmika</strong> (personal), <strong>Ādhidaivika</strong> (natural), and <strong>Ādhibhautika</strong> (external).</li>
+                    <li><strong>Verses 3 & 4:</strong> Gratitude to the lineage of Vyāsa. He is the repository of Vedic wisdom, the son of Parāśara, and is identified as <span class="iast">Vyāsāya Viṣṇu Rūpāya</span>—an incarnation of the Lord Himself, without whom the Vedas would be lost to time.</li>
+                    <li><strong>Verses 5 & 6:</strong> The Lord is hailed as <span class="iast">Akṣaraḥ</span>—He who never decays or modifies. Unlike our physical bodies which age, the Lord is meditated upon as an eternal 16-year-old youth, ever-victorious over the <span class="iast">saṃsāra-cakra</span>.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="m2" class="content-section">
+            <h1>The Arrival of Kaliyuga and the King's Curse</h1>
+            <p>Following the Kurukṣetra war and the departure of Kṛṣṇa, the dark age of <strong>Kaliyuga</strong> dawned. Guruji describes the birth of <strong>Parīkṣit</strong>, who survived Aśvatthāmā's Brahmāstra because Kṛṣṇa entered Uttarā’s womb to protect him with the Sudarśana Cakra. His name reflects his lifelong "examination" (<span class="iast">parīkṣā</span>) of every person he met, searching for the radiant face of the Lord he saw before birth.</p>
+
+            <div class="highlight-box">
+                <span class="analogy-label">The Anatomy of Dharma in Kaliyuga</span>
+                <p>Parīkṣit once saw a bull (Dharma) standing on only one leg. In previous ages, Dharma stood on four: <strong>Tapaḥ</strong> (Austerity), <strong>Śaucaṃ</strong> (Purity), <strong>Dayā</strong> (Compassion), and <strong>Satyaṃ</strong> (Truth). In Kaliyuga, only Truth remains, and even that is under threat.</p>
+                <p><strong>The Five Residences of Kali:</strong> Parīkṣit restricted the spirit of Kali to places of <strong>Dyūtaṃ</strong> (Gambling), <strong>Pānaṃ</strong> (Intoxication), <strong>Striyaḥ</strong> (Lust), <strong>Sūnā</strong> (Violence/Slaughter), and <strong>Suvarṇa</strong> (Gold). Because Parīkṣit wore a golden crown, Kali gained access to his mind, leading him to insult Sage Śamīka and receive the curse of the snake Takṣaka.</p>
+            </div>
+        </div>
+
+        <div id="m3" class="content-section">
+            <h1>The Śrīmad Bhāgavatam and the Divine Scribe</h1>
+            <p>Parīkṣit’s curse became a blessing for humanity. His detachment led to the seven-day narration of the <strong>Śrīmad Bhāgavatam</strong> by Sage Śuka, ensuring Parīkṣit’s liberation. Later, his son Janamejaya sought revenge through the <span class="iast">Sarpa Satra</span>, but was redirected by Sage Vaiśampāyana to listen to the histories of his ancestors—thus the Mahābhārata was revealed.</p>
+
+            <div class="highlight-box">
+                <span class="analogy-label">The Writing of the Epic at Mana</span>
+                <p>Guruji highlights the geography of Badrinath and the village of <strong>Mana</strong>:</p>
+                <ul>
+                    <li><strong>Vyās Guhā:</strong> The cave at a higher altitude where Vyāsa dictated.</li>
+                    <li><strong>Ganesha Guhā:</strong> Where Lord Gaṇeśa acted as the scribe, breaking his tusk to use as a pen.</li>
+                    <li><strong>The Condition:</strong> Gaṇeśa would not stop writing, but Vyāsa insisted Gaṇeśa must understand every verse. This led to the creation of highly complex philosophical verses used by Vyāsa to "buy time" for further composition.</li>
+                    <li><strong>The Sarasvatī:</strong> The river was so loud it disrupted the dictation; it was cursed to go underground, appearing only later at the Prayagraj Sangam.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="m4" class="content-section">
+            <h1>Yudhiṣṭhira’s Philosophical Inquiry</h1>
+            <p>After the war, Yudhiṣṭhira was crowned king but felt no peace. On the advice of Kṛṣṇa, he approached Bhīṣma on his bed of arrows. Bhīṣma, the master of all dharmas, was the only one capable of answering the six fundamental questions that could anchor a soul in the <span class="iast">Kali Yuga</span>.</p>
+
+            <div class="highlight-box">
+                <span class="analogy-label">The Six Fundamental Questions</span>
+                <ol>
+                    <li><strong>Kimekaṃ daivataṃ loke?</strong> Who is the single supreme deity in this universe?</li>
+                    <li><strong>Kiṃ vāpyekaṃ parāyaṇam?</strong> Who is the ultimate goal or refuge for all?</li>
+                    <li><strong>Stuvantaḥ kaṃ?</strong> By praising whom do we obtain the highest good?</li>
+                    <li><strong>Kamarcantaḥ?</strong> By worshipping whom do we obtain auspiciousness?</li>
+                    <li><strong>Ko dharmaḥ sarva dharmāṇāṃ?</strong> Which is the best dharma of all taught paths?</li>
+                    <li><strong>Kiṃ japan mucyate jantuḥ?</strong> By chanting whose name is a living being (<span class="iast">jantu</span>) liberated?</li>
+                </ol>
+                <p>Guruji notes that <span class="iast">jantu</span> proves the universal nature of the Sahasranāma—it is for everyone, from an elephant like <strong>Gajendra</strong> to a bird like <strong>Jaṭāyu</strong>.</p>
+            </div>
+        </div>
+
+        <div id="m5" class="content-section">
+            <h1>Bhīṣma’s Realization and Draupadī’s Laughter</h1>
+            <p>When Bhīṣma prepared to answer, <strong>Draupadī</strong> laughed ironically. She asked: "Where was this wisdom and Dharma when I was being disrobed in the assembly while you looked on?" Bhīṣma’s response is a cornerstone of spiritual practice: **The Impact of Food**.</p>
+            <p>He explained that he was eating the food of Duryodhana. Food built from <span class="iast">adharma</span> (unrighteousness) had clouded his intellect. Now, lying on the bed of arrows, that blood had drained away, and his mind was purified by Kṛṣṇa’s presence. He was now speaking from a position of absolute <span class="iast">Dharma</span>.</p>
+
+            <div class="highlight-box">
+                <span class="analogy-label">The Infinite Lord (Anantam)</span>
+                <p>Bhīṣma identifies Viṣṇu as the <span class="iast">Jagat-prabhu</span> (Master of the Universe). He is infinite in three ways:</p>
+                <ul>
+                    <li><strong>Time:</strong> No beginning (<span class="iast">Anādi</span>) and no end (<span class="iast">Ananta</span>).</li>
+                    <li><strong>Space:</strong> All-pervading. Guruji uses the **Gas Stove Analogy**: Just as the same fire can be ignited in thousands of houses, the Lord appears wherever a devotee "ignites" their heart with faith.</li>
+                    <li><strong>Objects:</strong> He is present in all materials; there is no object devoid of His presence.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="m6" class="content-section">
+            <h1>The Supreme Dharma and The Lotus Eye</h1>
+            <p>Bhīṣma defines the "Best Dharma" as the worship of <strong>Puṇḍarīkākṣam</strong>—the Lord with lotus-like eyes. He clarifies that the Lord values <strong>Bhāva</strong> (the feeling) over the material offering. This is proven by the story of <strong>Vidura</strong>, who in a state of ecstatic love, threw away the bananas and fed Kṛṣṇa the <strong>plantain skins</strong>. Kṛṣṇa accepted them joyfully because the "emotion" was pure.</p>
+
+            <div class="highlight-box">
+                <span class="analogy-label">The Mystery of the Reddish Eyes</span>
+                <p>Why are His eyes reddish like a lotus? Guruji gives two beautiful reasons:</p>
+                <ol>
+                    <li><strong>Divine Empathy:</strong> His eyes redden with joy when His devotees are happy, and with righteous anger when they are threatened.</li>
+                    <li><strong>The Reflection of Lakṣmī:</strong> Mahālakṣmī, who is reddish like a lotus, is always in His heart. As He gazes at her, her image is reflected in His eyes. Conversely, Lakṣmī’s eyes are blackish because she is constantly looking at the dark-complexioned (<span class="iast">Śyāmala</span>) Lord.</li>
+                </ol>
+            </div>
+            <p>The discourse concludes by establishing that the Lord is the <strong>Pitā</strong> (Father) of even Lord Brahma and the ultimate source of the holy <strong>Ganges</strong>, which was born from His toe during the Trivikrama avatar. Chanting these names is the supreme path to cross the ocean of sorrow.</p>
+        </div>
+
+        <div id="vid" class="content-section">
+            <h1>Full Day 3 Discourse</h1>
+            <div class="video-wrapper">
+                <iframe src="https://www.youtube.com/embed/thTeLSb62Zw" allowfullscreen></iframe>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script>
+    function showPart(id) {
+        document.querySelectorAll('.content-section').forEach(s => s.classList.remove('active'));
+        document.getElementById(id).classList.add('active');
+        document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+        const activeNav = Array.from(document.querySelectorAll('.nav-item')).find(n => n.getAttribute('onclick').includes(id));
+        if(activeNav) activeNav.classList.add('active');
+        document.getElementById('mainContent').scrollTop = 0;
+    }
+</script>
+</body>
+</html>
