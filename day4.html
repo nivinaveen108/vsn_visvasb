@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 4 - Viṣṇu Sahasranāma VISVAS B</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --accent-saffron: #FF9933;
+            --deep-sidebar: #1a1a1a;
+            --text-primary: #2c3e50;
+            --bg-main: #F7F8FA;
+        }
+
+        body { font-family: 'Inter', sans-serif; margin: 0; display: flex; flex-direction: column; height: 100vh; background: var(--bg-main); color: var(--text-primary); overflow: hidden; }
+
+        /* Navigation Header */
+        .top-bar { height: 95px; background: #fff; border-bottom: 3px solid var(--accent-saffron); display: flex; align-items: center; padding: 0 40px; justify-content: space-between; z-index: 1000; box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
+        .logo-area { text-decoration: none; display: flex; flex-direction: column; gap: 4px; }
+        .logo-main { font-weight: 800; font-size: 19px; color: var(--deep-sidebar); }
+        .logo-main span { color: var(--accent-saffron); }
+        .logo-sub { font-size: 17px; font-weight: 700; color: #000; display: flex; align-items: center; gap: 10px; }
+        .logo-sub::before { content: ""; display: inline-block; width: 18px; height: 3px; background: var(--accent-saffron); border-radius: 2px; }
+
+        .day-menu-container { display: flex; gap: 12px; }
+        .day-tab { padding: 10px 24px; border-radius: 25px; font-size: 13px; cursor: pointer; border: 1px solid #e0e0e0; background: white; text-decoration: none; color: #555; font-weight: 600; }
+        .day-tab.active { background: var(--accent-saffron); color: white; border-color: var(--accent-saffron); }
+
+        /* Sidebar & Layout */
+        .app-body { display: flex; flex: 1; overflow: hidden; }
+        .sidebar { width: 380px; background: var(--deep-sidebar); color: #fff; display: flex; flex-direction: column; border-right: 1px solid #333; }
+        .sidebar-header { padding: 25px; border-bottom: 1px solid #333; font-size: 11px; color: var(--accent-saffron); letter-spacing: 2px; text-transform: uppercase; font-weight: 700; }
+        .nav-list { overflow-y: auto; flex: 1; padding: 10px 0; }
+        .nav-item { padding: 20px 25px; cursor: pointer; font-size: 14px; color: #bbb; border-left: 4px solid transparent; transition: 0.2s; border-bottom: 1px solid #252525; line-height: 1.5; }
+        .nav-item:hover { background: #262626; color: #fff; }
+        .nav-item.active { background: #262626; color: var(--accent-saffron); border-left: 4px solid var(--accent-saffron); font-weight: 700; }
+
+        /* Main Content */
+        .main-content { flex: 1; padding: 40px 100px; overflow-y: auto; background: var(--bg-main); scroll-behavior: smooth; }
+        .content-section { display: none; max-width: 1050px; margin: 0 auto; padding-bottom: 150px; }
+        .content-section.active { display: block; animation: fadeIn 0.4s ease-out; }
+
+        h1 { font-size: 36px; color: #1a1a1a; margin-bottom: 25px; border-bottom: 4px solid var(--accent-saffron); padding-bottom: 15px; }
+        h2 { font-size: 26px; color: var(--deep-sidebar); margin-top: 50px; margin-bottom: 25px; font-weight: 800; border-left: 6px solid var(--accent-saffron); padding-left: 20px; }
+        p { line-height: 2.1; font-size: 18px; color: #333; margin-bottom: 30px; text-align: justify; }
+        .iast { font-family: 'Georgia', serif; font-style: italic; color: #c0392b; font-weight: 600; }
+        
+        .highlight-box { background: #fff; border-radius: 18px; padding: 40px; border-left: 10px solid var(--accent-saffron); box-shadow: 0 15px 35px rgba(0,0,0,0.06); margin: 40px 0; position: relative; }
+        .analogy-label { position: absolute; top: -14px; left: 25px; background: var(--accent-saffron); color: white; padding: 5px 18px; border-radius: 5px; font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; }
+
+        ul { line-height: 2.1; font-size: 18px; color: #333; margin-bottom: 30px; }
+        li { margin-bottom: 15px; }
+
+        .video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 25px; background: #000; margin: 60px 0; box-shadow: 0 25px 50px rgba(0,0,0,0.2); }
+        .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(25px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+<body>
+
+<div class="top-bar">
+    <a href="index.html" class="logo-area">
+        <div class="logo-main"><span>ॐ</span> Viṣṇu Sahasranāma VISVAS B</div>
+        <div class="logo-sub">Shri. Ramabhadran V Guruji</div>
+    </a>
+    <div class="day-menu-container">
+        <a href="index.html" class="day-tab">HOME</a>
+        <a href="day3.html" class="day-tab">DAY 3</a>
+        <a href="day4.html" class="day-tab active">DAY 4</a>
+    </div>
+</div>
+
+<div class="app-body">
+    <div class="sidebar">
+        <div class="sidebar-header">Technical & Ritual Mastery</div>
+        <div class="nav-list">
+            <div class="nav-item active" onclick="showPart('m1')">Creation, Pralaya & Removal of Sin</div>
+            <div class="nav-item" onclick="showPart('m2')">Kaliyuga Sanction & Divine Qualities</div>
+            <div class="nav-item" onclick="showPart('m3')">Anatomy of a Mahamantra</div>
+            <div class="nav-item" onclick="showPart('m4')">Nyāsam: The Body as a Temple</div>
+            <div class="nav-item" onclick="showPart('m5')">Purification Mythology & The Right Ear</div>
+            <div class="nav-item" onclick="showPart('m6')">The Chariot Allegory & Self-Control</div>
+            <div class="nav-item" onclick="showPart('m7')">Practical Meditation & FAQs</div>
+            <div class="nav-item" onclick="showPart('vid')" style="color:#ff4b2b; font-weight:bold; border-top: 1px solid #333; margin-top: 15px; padding-top: 25px;">▶ WATCH FULL VIDEO</div>
+        </div>
+    </div>
+
+    <div class="main-content" id="mainContent">
+        
+        <div id="m1" class="content-section active">
+            <h1>Creation, Pralaya, and the Removal of Sin</h1>
+            <p>Day 4 begins by addressing Śloka 17, which delineates the cosmic lifecycle. The Lord is the source of all <span class="iast">jīvātmās</span>—be they humans, animals, or celestials. He is the efficient cause of both creation and its eventual "folding back."</p>
+            
+            <div class="highlight-box">
+                <span class="analogy-label">The Mud Pot Analogy</span>
+                <p>To explain <strong>Pralaya</strong> (dissolution), Guruji uses the analogy of a clay pot. When a pot is smashed, it doesn't disappear into nothingness; it simply returns to its causal state—mud. Similarly, during the great dissolution, we lose our temporary physical forms and return to our original <span class="iast">ātmika</span> stage within the Lord.</p>
+            </div>
+
+            <h2>The Remedy for Yudhiṣṭhira’s Anxiety</h2>
+            <p>Yudhiṣṭhira was plagued by the moral weight of the Kurukṣetra war—the killing of kin and gurus. Bhīṣma reveals that this stotra is the supreme spiritual remedy. Chanting these names removes the <span class="iast">pāpa-bhaya</span> (fear of sin), not just from this life, but accumulated over millions of births.</p>
+        </div>
+
+        <div id="m2" class="content-section">
+            <h1>Kaliyuga Sanction and Divine Qualities</h1>
+            <p>Lord Kṛṣṇa, knowing that his departure would trigger the <span class="iast">Kali Yuga</span> (an age of vice), planted a <span class="iast">saṅkalpam</span> (divine intention) in Bhīṣma’s mind. This ensured that the Sahasranāma would be recorded by Vyāsa for the benefit of all future generations who would lack the capacity for rigorous Vedic rituals.</p>
+
+            <div class="highlight-box">
+                <span class="analogy-label">The Two Primary Qualities (Guṇas)</span>
+                <ul>
+                    <li><strong>Saulabhyam (Easy Accessibility):</strong> The Lord is not reached through intellectual degrees, which Guruji compares to a "lump of stone" compared to the "mountain" of the unknown. He is reached through innocence, just like <strong>Gajendra</strong> the elephant.</li>
+                    <li><strong>Ārjavam (Straightforwardness):</strong> The ability to move lovingly with all. Śrī Rāma exemplified this by treating a boatman (Guha), a monkey (Sugrīva), and an asura (Vibhīṣaṇa) as equal brothers.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="m3" class="content-section">
+            <h1>Anatomy of a Mahamantra</h1>
+            <p>A mantra becomes a <strong>Mahamantra</strong> when it possesses a specific technical structure. Guruji explains the "anatomy" of the Viṣṇu Sahasranāma:</p>
+            <ul>
+                <li><strong>Ṛṣi:</strong> Vyāsa Bhagavān (The <span class="iast">Mantra-Draṣṭā</span> or Seer).</li>
+                <li><strong>Chandas:</strong> <span class="iast">Anuṣṭup</span> (32 syllables per śloka).</li>
+                <li><strong>Devatā:</strong> Śrī Kṛṣṇa Paramātmā.</li>
+                <li><strong>Bījam (Seed):</strong> <span class="iast">Amṛtāṃśūdbhavaḥ</span>—the source of immortality.</li>
+                <li><strong>Śakti (Strength):</strong> <span class="iast">Devakī-nandanaḥ</span>—the energy of Kṛṣṇa that empowered Bhīṣma to speak despite his pain.</li>
+                <li><strong>Hṛdayam (Heart):</strong> The Sāma Veda (specifically the <span class="iast">Bṛhat, Rathantara,</span> and <span class="iast">Vāmadeva</span> Sāmas).</li>
+            </ul>
+        </div>
+
+        <div id="m4" class="content-section">
+            <h1>Nyāsam: The Body as a Temple</h1>
+            <p>Guruji introduces the ritual of <strong>Nyāsam</strong>. In South Indian traditions, this is essential to "charge" the physical body before chanting. The term means both "renunciation" and "installation."</p>
+            
+            <div class="highlight-box">
+                <span class="analogy-label">The Temple Analogy</span>
+                <p>According to the <em>Kaṭhopaniṣad</em>, the Lord resides in the heart. Therefore, your body is not just flesh; it is a temple. Just as a temple requires <span class="iast">Kumbhābhiṣekam</span> (sanctification), the practitioner uses Nyāsam to install the Ṛṣi on the head, the Chandas on the lips, and the Devatā in the heart.</p>
+            </div>
+            <p>While the Sahasranāma can be chanted anywhere—even on a bus—doing it in a prayer room after Nyāsam makes the vibration significantly more potent.</p>
+        </div>
+
+        <div id="m5" class="content-section">
+            <h1>Purification Mythology and The Right Ear</h1>
+            <p>A unique ritual step involves touching the <strong>Right Ear</strong> for purification. Guruji explains that because touching one's lips (for the Chandas) is unhygienic, one must purify the hand before touching the heart (for the Devatā).</p>
+
+            <div class="highlight-box">
+                <span class="analogy-label">The Legend of Jahnu Maharṣi</span>
+                <p>When the river Gangā descended to Earth, she flooded the hermitage of <strong>Jahnu Maharṣi</strong>. In his anger, he swallowed the entire river. Upon Bhagīratha’s plea, the sage released the river through his <strong>Right Ear</strong>. Because the holy Ganges passed through it, the right ear is considered a universal purifier in Vedic ritualism.</p>
+            </div>
+            <p>The <strong>Bījam</strong> is installed on the navel (<span class="iast">nābhi</span>), as it represents the source of life and nourishment from the mother's womb.</p>
+        </div>
+
+        <div id="m6" class="content-section">
+            <h1>The Chariot Allegory and Self-Control</h1>
+            <p>To protect the "temple" of the body, we invoke the Lord's weapons. Guruji explains the relationship between our faculties through the famous Chariot analogy from the Upanishads.</p>
+
+            
+
+            <div class="highlight-box">
+                <span class="analogy-label">The Chariot Breakdown</span>
+                <ul>
+                    <li><strong>Five Horses:</strong> The five senses (<span class="iast">jñānendriyas</span>)—eyes, ears, etc.</li>
+                    <li><strong>The Reins:</strong> The Mind (<span class="iast">Manas</span>).</li>
+                    <li><strong>The Charioteer:</strong> The Intellect (<span class="iast">Buddhi</span>).</li>
+                    <li><strong>The Road:</strong> Sense objects (worldly attractions).</li>
+                </ul>
+                <p><strong>The Conflict:</strong> Like a diabetic at a party, the horses (tongue) want the sweet, the reins (mind) justify it, but the Charioteer (intellect) must pull the reins back to save the chariot.</p>
+            </div>
+        </div>
+
+        <div id="m7" class="content-section">
+            <h1>Practical Meditation and FAQs</h1>
+            <p>Guruji concludes with practical advice for daily practice. Meditation should always move from the <strong>Known to the Unknown</strong>. This is why the first name is <span class="iast">Viśvam</span> (The Universe)—it is easier to meditate on the world we see than an abstract void.</p>
+
+            <h2>Key Takeaways:</h2>
+            <ul>
+                <li><strong>Bhagavat Prītyarthaṃ:</strong> We chant only to please the Lord. Like a father buying a bicycle for a studious child, the Lord provides what we need without us asking if He is pleased with our focus.</li>
+                <li><strong>The Spiritual Heart:</strong> Located on the <strong>right side</strong> of the chest, shaped like a downward-drooping lotus.</li>
+                <li><strong>Aṅguṣṭhamātra:</strong> For focused meditation, visualize the Lord within that heart in a form the size of a thumb.</li>
+                <li><strong>The Lamp Story:</strong> Narada learned that a farmer who remembers God just twice a day while doing his duty is as dear as a sage chanting 24/7. Sincerity outweighs quantity.</li>
+            </ul>
+        </div>
+
+        <div id="vid" class="content-section">
+            <h1>Full Day 4 Discourse</h1>
+            <div class="video-wrapper">
+                <iframe src="https://www.youtube.com/embed/QwxGvk5PqBA" allowfullscreen></iframe>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script>
+    function showPart(id) {
+        document.querySelectorAll('.content-section').forEach(s => s.classList.remove('active'));
+        document.getElementById(id).classList.add('active');
+        document.querySelectorAll('.nav-list .nav-item').forEach(n => n.classList.remove('active'));
+        const activeNav = Array.from(document.querySelectorAll('.nav-item')).find(n => n.getAttribute('onclick').includes(id));
+        if(activeNav) activeNav.classList.add('active');
+        document.getElementById('mainContent').scrollTop = 0;
+    }
+</script>
+</body>
+</html>
