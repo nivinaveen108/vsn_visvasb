@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 7 - Full Discourse Expansion</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --accent-saffron: #FF9933;
+            --deep-sidebar: #1a1a1a;
+            --text-primary: #2c3e50;
+            --bg-main: #F7F8FA;
+            --gold: #D4AF37;
+        }
+
+        body { font-family: 'Inter', sans-serif; margin: 0; display: flex; flex-direction: column; height: 100vh; background: var(--bg-main); color: var(--text-primary); overflow: hidden; }
+
+        /* Header Navigation */
+        .top-bar { height: 95px; background: #fff; border-bottom: 3px solid var(--accent-saffron); display: flex; align-items: center; padding: 0 40px; justify-content: space-between; z-index: 1000; box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
+        .logo-area { text-decoration: none; display: flex; flex-direction: column; gap: 4px; }
+        .logo-main { font-weight: 800; font-size: 19px; color: var(--deep-sidebar); }
+        .logo-main span { color: var(--accent-saffron); }
+        .logo-sub { font-size: 17px; font-weight: 700; color: #000; display: flex; align-items: center; gap: 10px; }
+        .logo-sub::before { content: ""; display: inline-block; width: 18px; height: 3px; background: var(--accent-saffron); border-radius: 2px; }
+
+        .day-menu-container { display: flex; gap: 12px; }
+        .day-tab { padding: 10px 24px; border-radius: 25px; font-size: 13px; cursor: pointer; border: 1px solid #e0e0e0; background: white; text-decoration: none; color: #555; font-weight: 600; }
+        .day-tab.active { background: var(--accent-saffron); color: white; border-color: var(--accent-saffron); }
+
+        /* Sidebar */
+        .app-body { display: flex; flex: 1; overflow: hidden; }
+        .sidebar { width: 400px; background: var(--deep-sidebar); color: #fff; display: flex; flex-direction: column; border-right: 1px solid #333; }
+        .sidebar-header { padding: 25px; border-bottom: 1px solid #333; font-size: 11px; color: var(--accent-saffron); letter-spacing: 2px; text-transform: uppercase; font-weight: 700; }
+        .nav-list { overflow-y: auto; flex: 1; padding: 10px 0; }
+        .nav-item { padding: 18px 25px; cursor: pointer; font-size: 14px; color: #bbb; border-left: 4px solid transparent; transition: 0.2s; border-bottom: 1px solid #252525; line-height: 1.5; }
+        .nav-item:hover { background: #262626; color: #fff; }
+        .nav-item.active { background: #262626; color: var(--accent-saffron); border-left: 4px solid var(--accent-saffron); font-weight: 700; }
+
+        /* Main Content Area */
+        .main-content { flex: 1; padding: 40px 100px; overflow-y: auto; background: var(--bg-main); scroll-behavior: smooth; }
+        .content-section { display: none; max-width: 1100px; margin: 0 auto; padding-bottom: 150px; }
+        .content-section.active { display: block; animation: fadeIn 0.4s ease-out; }
+
+        h1 { font-size: 36px; color: #1a1a1a; margin-bottom: 25px; border-bottom: 5px solid var(--accent-saffron); padding-bottom: 15px; }
+        h2 { font-size: 26px; color: var(--deep-sidebar); margin-top: 45px; margin-bottom: 20px; font-weight: 800; border-left: 8px solid var(--accent-saffron); padding-left: 20px; }
+        h3 { font-size: 20px; color: #7f8c8d; margin-top: 30px; font-weight: 600; }
+        
+        p { line-height: 1.9; font-size: 18px; color: #333; margin-bottom: 25px; text-align: justify; }
+        ul { line-height: 1.9; font-size: 18px; color: #333; margin-bottom: 30px; }
+        li { margin-bottom: 15px; }
+
+        /* Special UI Components */
+        .highlight-box { background: #fff; border-radius: 20px; padding: 35px; border-left: 12px solid var(--accent-saffron); box-shadow: 0 15px 40px rgba(0,0,0,0.06); margin: 40px 0; position: relative; }
+        .analogy-label { position: absolute; top: -16px; left: 30px; background: var(--accent-saffron); color: white; padding: 6px 16px; border-radius: 6px; font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 1.5px; }
+        
+        .mantra-card { background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%); padding: 30px; border-radius: 15px; text-align: center; font-family: 'Georgia', serif; font-size: 24px; font-style: italic; color: #e65100; border: 2px solid var(--accent-saffron); margin: 40px 0; box-shadow: 0 10px 20px rgba(255, 153, 51, 0.2); }
+
+        .birth-table { width: 100%; border-collapse: collapse; margin: 30px 0; background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        .birth-table th { background: var(--deep-sidebar); color: white; padding: 15px; text-align: left; }
+        .birth-table td { padding: 15px; border-bottom: 1px solid #eee; }
+
+        .video-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 25px; background: #000; margin: 60px 0; box-shadow: 0 25px 50px rgba(0,0,0,0.3); }
+        .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+<body>
+
+<div class="top-bar">
+    <a href="#" class="logo-area">
+        <div class="logo-main"><span>ॐ</span> Viṣṇu Sahasranāma DAY 7</div>
+        <div class="logo-sub">Full Discourse Expansion</div>
+    </a>
+    <div class="day-menu-container">
+        <a href="#" class="day-tab">DAY 6</a>
+        <a href="#" class="day-tab active">DAY 7</a>
+        <a href="#" class="day-tab">DAY 8</a>
+    </div>
+</div>
+
+<div class="app-body">
+    <div class="sidebar">
+        <div class="sidebar-header">10-Part Expanded Navigation</div>
+        <div class="nav-list">
+            <div class="nav-item active" onclick="showPart('m1')">Part 1: The Definition of Yoga</div>
+            <div class="nav-item" onclick="showPart('m2')">Part 2: The Curse of Jaya & Vijaya</div>
+            <div class="nav-item" onclick="showPart('m3')">Part 3: Narasiṃha & The Pillar</div>
+            <div class="nav-item" onclick="showPart('m4')">Part 4: Uttama Nature & Vāmana</div>
+            <div class="nav-item" onclick="showPart('m5')">Part 5: Gopikas & Gayatri Structure</div>
+            <div class="nav-item" onclick="showPart('m6')">Part 6: Avatāra vs. Human Birth</div>
+            <div class="nav-item" onclick="showPart('m7')">Part 7: Śrī Rāma's Hidden Divinity</div>
+            <div class="nav-item" onclick="showPart('m8')">Part 8: Kṛṣṇa & Cosmic Gravity</div>
+            <div class="nav-item" onclick="showPart('m9')">Part 9: Svayaṃbhū Temples List</div>
+            <div class="nav-item" onclick="showPart('m10')">Part 10: The Healing Mantras</div>
+            <div class="nav-item" onclick="showPart('vid')" style="color:#ff4b2b; font-weight:900; border-top: 1px solid #444; margin-top: 15px; padding-top: 25px;">▶ WATCH FULL DAY 7</div>
+        </div>
+    </div>
+
+    <div class="main-content" id="mainContent">
+        
+        <div id="m1" class="content-section active">
+            <h1>The Supreme Path (Yoga)</h1>
+            <p>Day 7 opens with the profound definition of <strong>Yoga</strong>, derived from the root meaning "to join." In the Sahasranāma, Bhagavan is not just the destination, but the <em>process</em> itself.</p>
+            
+            <h2>The Dual Role of the Lord</h2>
+            <ul>
+                <li><strong>Yogaḥ:</strong> He is the connection between the Jīvātmā and Paramātmā. When a devotee surrenders, He takes responsibility for the journey.</li>
+                <li><strong>Yogavidāṃ-netā:</strong> The leader of those who know Yoga. Whether one follows <em>Karma, Jñāna, or Bhakti</em>, He is the source and the guide.</li>
+            </ul>
+
+            <div class="highlight-box">
+                <span class="analogy-label">Yoga-Kṣema</span>
+                <p>As the leader, He provides what is required for the spiritual journey and protects what has already been attained. This is the ultimate security for a seeker.</p>
+            </div>
+            
+        </div>
+
+        <div id="m2" class="content-section">
+            <h1>The Descent of the Gatekeepers</h1>
+            <p>The story of <strong>Jaya and Vijaya</strong> explains the origin of evil and the necessity of Divine Avatars. When the four Kumāras (the child-sages) were blocked from entering Vaikuṇṭha, a "flash of anger" led to a curse.</p>
+            
+            <h3>The Divine Concession</h3>
+            <p>Bhagavan offered the gatekeepers a choice to mitigate the curse:</p>
+            <table class="birth-table">
+                <tr><th>Option</th><th>Duration</th><th>Outcome</th></tr>
+                <tr><td>Devotees</td><td>7 Births</td><td>Slow return to the Lord</td></tr>
+                <tr><td>Enemies</td><td>3 Births</td><td>Fast return (through intense focus/hatred)</td></tr>
+            </table>
+            <p>They chose enmity. This "drama" allowed for the manifestation of the Lord's most powerful forms to redeem them.</p>
+        </div>
+
+        <div id="m3" class="content-section">
+            <h1>Narasiṃha: Divinity in the Insentient</h1>
+            <p>Hiraṇyakaśipu secured a clever boon from Lord Brahmā, thinking he had cheated death. He could not be killed by man or beast, indoors or out, day or night, by any weapon.</p>
+            
+            <h2>The Manifestation</h2>
+            <p>To prove Prahlāda's claim that God is in everything—even a pillar—the Lord emerged as <strong>Narasiṃha</strong>.</p>
+            <ul>
+                <li><strong>Neither Man nor Beast:</strong> A Man-Lion form.</li>
+                <li><strong>Neither Weapon nor Hand:</strong> Used His Divine Nails.</li>
+                <li><strong>Neither Day nor Night:</strong> At Dusk (Sandhyā).</li>
+                <li><strong>Neither Earth nor Sky:</strong> On His lap.</li>
+            </ul>
+            <div class="highlight-box">
+                <span class="analogy-label">Divine Integrity</span>
+                <p>The Lord went through this elaborate "technical" manifestation specifically to ensure that the "words of Brahmā" (the boon) remained true. He protects the integrity of the universe's laws while saving His devotee.</p>
+            </div>
+            
+        </div>
+
+        <div id="m4" class="content-section">
+            <h1>The Scale of Human Nature (Uttama)</h1>
+            <p>Guruji classifies human character into three tiers to explain the concept of <strong>Purushottama</strong>:</p>
+            <ul>
+                <li><strong>Adhama:</strong> The jealous. They burn their own house to see the neighbor's house burn.</li>
+                <li><strong>Madhyama:</strong> "Live and let live."</li>
+                <li><strong>Uttama:</strong> Those who suffer so others can rejoice.</li>
+            </ul>
+
+            <h3>Vāmana and Mahābali</h3>
+            <p>Even the Lord becomes "Uttama" by reducing His stature. He appeared as a tiny dwarf (Vāmana) and <em>begged</em> for land from Mahābali. He even covered His chest (hiding Mahālakṣmī) with a deer skin to keep His identity secret until the ego of the devotee was subdued.</p>
+        </div>
+
+        <div id="m5" class="content-section">
+            <h1>Selfless Love: The Gopikas & Gayatri</h1>
+            <p>The **Gopikas** represent the pinnacle of devotion. When Uddhava (the scholar) tried to teach them meditation, they laughed. "Meditation is for those who forget," they said. "We need a way to <em>remove</em> Krishna from our minds."</p>
+
+            <div class="highlight-box">
+                <span class="analogy-label">The Sand Remedy</span>
+                <p>When Krishna had a "fever," He said only the sand from a devotee's feet could cure Him. While His wives feared hell for putting their feet near His head, the Gopikas sent carts of sand immediately. "We don't care about hell as long as He is cured." This is the <strong>Uttama</strong> heart.</p>
+            </div>
+
+            <h2>Structural Symbolism</h2>
+            <p>The first 3 ślokas contain <strong>24 names</strong> (9+8+7). These represent the <strong>24 syllables of the Gayatri Mantra</strong>. Chanting these ślokas is technically equivalent to the Gayatri itself.</p>
+        </div>
+
+        <div id="m6" class="content-section">
+            <h1>Avatāra vs. Human Birth</h1>
+            <p>Guruji explains the name <strong>Sambhavaḥ</strong>—the difference between how we are born and how God "descends."</p>
+            <ul>
+                <li><strong>Human Birth:</strong> Forced by <em>Karma</em> and <em>Vāsanās</em> (deep desires).</li>
+                <li><strong>Divine Avatāra:</strong> An independent "descent" by will. He chooses His own parents, timing, and form to protect the good and establish Dharma.</li>
+            </ul>
+            <div class="highlight-box">
+                <span class="analogy-label">The Palace Analogy</span>
+                <p>If you die longing for a palace, you will be born there. But <strong>Karma</strong> decides if you are the Prince (Owner) or the Sweeper (Servant). In contrast, the Lord is the architect of the palace who visits by choice.</p>
+            </div>
+        </div>
+
+        <div id="m7" class="content-section">
+            <h1>Śrī Rāma: The Hidden Divinity</h1>
+            <p>Why did Rāma act like an ordinary man who suffered? Guruji provides two reasons:</p>
+            <ol>
+                <li><strong>To Set a Human Standard:</strong> If He acted as God, we would say "Of course He can do it, He is God." By acting as a man, He showed us how to follow Dharma as a son and husband.</li>
+                <li><strong>The Technicality of the Boon:</strong> Rāvaṇa had a boon that no <em>celestial</em> could kill him. He ignored humans as "ants." Thus, the Lord had to appear strictly as a human to destroy him.</li>
+            </ol>
+            
+        </div>
+
+        <div id="m8" class="content-section">
+            <h1>Kṛṣṇa: The Force of Attraction</h1>
+            <p>The name <strong>Kṛṣṇa</strong> is scientifically linked to the root "to pull." Guruji explains that this refers to the <strong>Gravitational Pull</strong> of the Divine.</p>
+            <ul>
+                <li><strong>Universal Gravity:</strong> This Divine "magnetic" force holds the Earth and millions of satellites in their orbits without collision.</li>
+                <li><strong>Vidhātā:</strong> He is the dispenser of the "fruits of action," ensuring every karma meets its result with scientific precision.</li>
+            </ul>
+        </div>
+
+        <div id="m9" class="content-section">
+            <h1>Svayaṃbhū: Self-Manifested Presence</h1>
+            <p>The Lord is <strong>Svayaṃbhū</strong>—He exists independently. There are 8 special sites where He manifested Himself without human installation:</p>
+            <table class="birth-table">
+                <tr><th>Region</th><th>Temples</th></tr>
+                <tr><td>South India</td><td>Srirangam, Tirumala, Srimushnam, Vanamamalai</td></tr>
+                <tr><td>North India</td><td>Badrinath, Naimisharanya, Muktinath, Pushkar</td></tr>
+            </table>
+        </div>
+
+        <div id="m10" class="content-section">
+            <h1>The Healing Grace: Practical Remedies</h1>
+            <p>The discourse concludes with practical advice for health (fatty liver, indigestion, ailments). While the Lord is the ultimate Physician (<strong>Bhiṣak</strong>), He is also the Medicine (<strong>Bhaiṣajyam</strong>).</p>
+            
+            <div class="mantra-card">
+                "Acyuta, Ananta, Govinda"
+            </div>
+            
+            <p>Chanting these three names together is the "Tri-Mantra" for healing. Guruji also notes that the names are mapped to the 27 Nakṣatras (108 padas), aligning the stotra with the cosmic order of astrology.</p>
+        </div>
+
+        <div id="vid" class="content-section">
+            <h1>Day 7 Full Video</h1>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/QxmM-admxrQ" allowfullscreen></iframe>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script>
+    function showPart(id) {
+        // Hide all sections
+        document.querySelectorAll('.content-section').forEach(s => s.classList.remove('active'));
+        // Show selected section
+        document.getElementById(id).classList.add('active');
+        
+        // Update sidebar
+        document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+        const activeNav = Array.from(document.querySelectorAll('.nav-item')).find(n => n.getAttribute('onclick').includes(id));
+        if(activeNav) activeNav.classList.add('active');
+        
+        // Scroll to top
+        document.getElementById('mainContent').scrollTop = 0;
+    }
+</script>
+</body>
+</html>
