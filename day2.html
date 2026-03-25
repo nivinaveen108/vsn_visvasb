@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Day 2 Full Content - Viṣṇu Sahasranāma VISVAS B Syllabus</title>
+    <title>Day 2 - Viṣṇu Sahasranāma VISVAS B</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -11,61 +11,58 @@
             --deep-sidebar: #1a1a1a;
             --text-primary: #2c3e50;
             --bg-main: #F7F8FA;
-            --card-white: #ffffff;
-            --border-light: #e0e0e0;
         }
 
         body { font-family: 'Inter', sans-serif; margin: 0; display: flex; flex-direction: column; height: 100vh; background: var(--bg-main); color: var(--text-primary); overflow: hidden; }
 
-        /* Top Bar - Prominent Branding */
+        /* Navigation Header */
         .top-bar { height: 95px; background: #fff; border-bottom: 3px solid var(--accent-saffron); display: flex; align-items: center; padding: 0 40px; justify-content: space-between; z-index: 1000; box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
         .logo-area { text-decoration: none; display: flex; flex-direction: column; gap: 4px; }
-        .logo-main { font-weight: 800; font-size: 19px; color: var(--deep-sidebar); letter-spacing: -0.3px; }
+        .logo-main { font-weight: 800; font-size: 19px; color: var(--deep-sidebar); }
         .logo-main span { color: var(--accent-saffron); }
         .logo-sub { font-size: 17px; font-weight: 700; color: #000; display: flex; align-items: center; gap: 10px; }
         .logo-sub::before { content: ""; display: inline-block; width: 18px; height: 3px; background: var(--accent-saffron); border-radius: 2px; }
 
         .day-menu-container { display: flex; gap: 12px; }
-        .day-tab { padding: 10px 24px; border-radius: 25px; font-size: 13px; cursor: pointer; border: 1px solid var(--border-light); background: white; transition: 0.3s; text-decoration: none; color: #555; font-weight: 600; }
+        .day-tab { padding: 10px 24px; border-radius: 25px; font-size: 13px; cursor: pointer; border: 1px solid #e0e0e0; background: white; text-decoration: none; color: #555; font-weight: 600; }
         .day-tab.active { background: var(--accent-saffron); color: white; border-color: var(--accent-saffron); }
 
-        /* Layout */
+        /* Sidebar & Layout */
         .app-body { display: flex; flex: 1; overflow: hidden; }
-        .sidebar { width: 320px; background: var(--deep-sidebar); color: #fff; display: flex; flex-direction: column; }
+        .sidebar { width: 380px; background: var(--deep-sidebar); color: #fff; display: flex; flex-direction: column; border-right: 1px solid #333; }
         .sidebar-header { padding: 25px; border-bottom: 1px solid #333; font-size: 11px; color: var(--accent-saffron); letter-spacing: 2px; text-transform: uppercase; font-weight: 700; }
         .nav-list { overflow-y: auto; flex: 1; padding: 10px 0; }
-        .nav-item { padding: 12px 25px; cursor: pointer; font-size: 13px; color: #bbb; border-left: 4px solid transparent; transition: 0.2s; line-height: 1.4; }
+        .nav-item { padding: 20px 25px; cursor: pointer; font-size: 14px; color: #bbb; border-left: 4px solid transparent; transition: 0.2s; border-bottom: 1px solid #252525; line-height: 1.5; }
         .nav-item:hover { background: #262626; color: #fff; }
-        .nav-item.active { background: #262626; color: var(--accent-saffron); border-left: 4px solid var(--accent-saffron); font-weight: 600; }
+        .nav-item.active { background: #262626; color: var(--accent-saffron); border-left: 4px solid var(--accent-saffron); font-weight: 700; }
 
-        /* Content Area */
-        .main-content { flex: 1; padding: 40px 60px; overflow-y: auto; background: var(--bg-main); scroll-behavior: smooth; }
-        .content-section { display: none; max-width: 900px; margin: 0 auto; padding-bottom: 80px; }
+        /* Main Content */
+        .main-content { flex: 1; padding: 40px 100px; overflow-y: auto; background: var(--bg-main); scroll-behavior: smooth; }
+        .content-section { display: none; max-width: 1050px; margin: 0 auto; padding-bottom: 150px; }
         .content-section.active { display: block; animation: fadeIn 0.4s ease-out; }
 
-        h1 { font-size: 30px; color: #1a1a1a; margin-bottom: 20px; border-bottom: 2px solid var(--accent-saffron); padding-bottom: 10px; }
-        h2 { font-size: 20px; color: var(--deep-sidebar); margin-top: 35px; margin-bottom: 15px; }
-        p { line-height: 1.8; font-size: 17px; color: #444; margin-bottom: 20px; text-align: justify; }
+        h1 { font-size: 36px; color: #1a1a1a; margin-bottom: 25px; border-bottom: 4px solid var(--accent-saffron); padding-bottom: 15px; }
+        h2 { font-size: 26px; color: var(--deep-sidebar); margin-top: 50px; margin-bottom: 25px; font-weight: 800; border-left: 6px solid var(--accent-saffron); padding-left: 20px; }
+        p { line-height: 2.1; font-size: 18px; color: #333; margin-bottom: 30px; text-align: justify; }
         .iast { font-family: 'Georgia', serif; font-style: italic; color: #c0392b; font-weight: 600; }
         
-        .highlight-box { background: #fff; border-radius: 12px; padding: 25px; border-left: 5px solid var(--accent-saffron); box-shadow: 0 4px 15px rgba(0,0,0,0.05); margin: 25px 0; }
-        .analogy-tag { display: inline-block; background: #eee; padding: 4px 10px; border-radius: 4px; font-size: 11px; font-weight: 700; text-transform: uppercase; color: #777; margin-bottom: 10px; }
-        
-        .video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 15px; background: #000; margin: 30px 0; }
+        .highlight-box { background: #fff; border-radius: 18px; padding: 40px; border-left: 10px solid var(--accent-saffron); box-shadow: 0 15px 35px rgba(0,0,0,0.06); margin: 40px 0; position: relative; }
+        .analogy-label { position: absolute; top: -14px; left: 25px; background: var(--accent-saffron); color: white; padding: 5px 18px; border-radius: 5px; font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; }
+
+        ul { line-height: 2.1; font-size: 18px; color: #333; margin-bottom: 30px; }
+        li { margin-bottom: 15px; }
+
+        .video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 25px; background: #000; margin: 60px 0; box-shadow: 0 25px 50px rgba(0,0,0,0.2); }
         .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
 
-        .footer-nav { display: flex; justify-content: space-between; padding-top: 40px; border-top: 1px solid var(--border-light); margin-top: 60px; }
-        .nav-btn { padding: 14px 28px; border-radius: 10px; border: 1.5px solid var(--accent-saffron); color: var(--accent-saffron); cursor: pointer; font-weight: 700; font-size: 12px; text-transform: uppercase; transition: 0.3s; text-decoration: none; }
-        .nav-btn:hover { background: var(--accent-saffron); color: white; }
-
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(25px); } to { opacity: 1; transform: translateY(0); } }
     </style>
 </head>
 <body>
 
 <div class="top-bar">
     <a href="index.html" class="logo-area">
-        <div class="logo-main"><span>ॐ</span> Viṣṇu Sahasranāma VISVAS B Syllabus</div>
+        <div class="logo-main"><span>ॐ</span> Viṣṇu Sahasranāma VISVAS B</div>
         <div class="logo-sub">Shri. Ramabhadran V Guruji</div>
     </a>
     <div class="day-menu-container">
@@ -77,119 +74,119 @@
 
 <div class="app-body">
     <div class="sidebar">
-        <div class="sidebar-header">Day 2: Full Discourse</div>
+        <div class="sidebar-header">Comprehensive Syllabus</div>
         <div class="nav-list">
-            <div class="nav-item active" onclick="showPart('p1')">1. Meaning & The Epics</div>
-            <div class="nav-item" onclick="showPart('p2')">2. Status & Greatness</div>
-            <div class="nav-item" onclick="showPart('p3')">3. Tapatraya & 1st Sloka</div>
-            <div class="nav-item" onclick="showPart('p4')">4. Viswaksena & CEO Role</div>
-            <div class="nav-item" onclick="showPart('p5')">5. Gratitude to Vyāsa</div>
-            <div class="nav-item" onclick="showPart('p6')">6. Sadripu & Internal Victories</div>
-            <div class="nav-item" onclick="showPart('p7')">7. Karma & The Cow-Rope</div>
-            <div class="nav-item" onclick="showPart('p8')">8. Slipper Analogy & Food</div>
-            <div class="nav-item" onclick="showPart('vid')" style="color:#ff4b2b; font-weight:bold;">▶ WATCH VIDEO</div>
+            <div class="nav-item active" onclick="showPart('m1')">Vedic Epistemology & The Epics</div>
+            <div class="nav-item" onclick="showPart('m2')">Obstacles & Divine Psychology</div>
+            <div class="nav-item" onclick="showPart('m3')">Viswaksena & The Sage Vyāsa</div>
+            <div class="nav-item" onclick="showPart('m4')">Psychology of Desire & Wonder</div>
+            <div class="nav-item" onclick="showPart('m5')">Karma Dynamics & Global Insulation</div>
+            <div class="nav-item" onclick="showPart('m6')">Food subtle Effects & Eclipse Rituals</div>
+            <div class="nav-item" onclick="showPart('vid')" style="color:#ff4b2b; font-weight:bold; border-top: 1px solid #333; margin-top: 15px; padding-top: 25px;">▶ WATCH FULL VIDEO</div>
         </div>
     </div>
 
     <div class="main-content" id="mainContent">
         
-        <div id="p1" class="content-section active">
-            <h1>The Meaning of the Shanti Mantra</h1>
-            <p>The session explores the <span class="iast">Śānti Mantra</span> focusing on completeness (<span class="iast">Pūrṇam</span>). Guruji notes that early Western researchers dismissed these as "blabberings," but they are actually deep philosophical statements requiring a Guru's guidance.</p>
+        <div id="m1" class="content-section active">
+            <h1>Vedic Epistemology and Practical Application</h1>
+            <p>The discourse opens with the <span class="iast">Śānti Mantra</span>, specifically the invocation of <span class="iast">Pūrṇam</span> (Wholeness). Guruji explains that while Western logic often finds Vedic statements paradoxical—such as "subtracting wholeness from wholeness leaves wholeness"—these are profound mathematical and spiritual truths. However, these truths remain abstract <span class="iast">siddhāntas</span> (theories) until they are lived.</p>
             
             <div class="highlight-box">
-                <span class="analogy-tag">Pythagoras Analogy</span>
-                <p>Vedic mantras are theoretical, like the Pythagoras theorem. They need practical proof. Lord Rama provides the practical example for "Worship your father as God" by accepting exile.</p>
-            </div>
-            
-            <h2>The "Executive Summaries"</h2>
-            <p>Since the <span class="iast">Mahābhārata</span> has 125,000 ślokas, Guruji identifies two summaries: <strong>Bhagavad Gītā</strong> and <strong>Viṣṇu Sahasranāmam</strong> (Found in Chapter 149 of the <span class="iast">Anuśāsana Parva</span>).</p>
-        </div>
-
-        <div id="p2" class="content-section">
-            <h1>Unique Status of the Stotra</h1>
-            <p>The Sahasranāmam is "a shade better" than the Gītā. While the Gītā is an <span class="iast">anuśāsana-grantha</span> (instruction), this is a <span class="iast">stotra-grantha</span> (praise) where sincere chanting is sufficient.</p>
-            
-            <div class="highlight-box">
-                <strong>6 Reasons for Greatness (Ādi Śaṅkara):</strong>
-                <ol>
-                    <li><strong>Mahābhārata-sāratvāt:</strong> Essence of the Fifth Veda.</li>
-                    <li><strong>Ṛṣibhiḥ-parigītatvāt:</strong> Visualized by ancient sages.</li>
-                    <li><strong>Vedavyāsa-matatvāt:</strong> Compiled by an incarnation of Viṣṇu.</li>
-                    <li><strong>Bhīṣma-matatvāt:</strong> Opinion of the personification of Dharma.</li>
-                    <li><strong>Sarva-parigrahitvāt:</strong> Accepted by all scholars (Śaṅkara, Madhva, etc).</li>
-                    <li><strong>Gītā-anugunatvāt:</strong> Aligns with Japa-yajña as the highest worship.</li>
-                </ol>
-            </div>
-        </div>
-
-        <div id="p3" class="content-section">
-            <h1>Tapatraya & The First Sloka</h1>
-            <p>The first śloka is for <span class="iast">Sarva vighnopaśāntaye</span> (pacification of all obstacles). Indra and other devatas may create hurdles out of jealousy for our quick path to <span class="iast">Mokṣa</span>.</p>
-            <div class="highlight-box">
-                <strong>The Three Obstacles:</strong>
+                <span class="analogy-label">The Pythagoras Analogy</span>
+                <p>Think of the Vedas as the <strong>Pythagoras Theorem</strong>. In isolation, a formula like $a^2 + b^2 = c^2$ is just a concept. It only becomes "real" to a student when they draw the triangle and measure the sides. Similarly, the Vedas provide the spiritual "formula," but the <span class="iast">Itihāsas</span> (Epics) provide the "solved examples."</p>
                 <ul>
-                    <li><strong>Ādhyātmika:</strong> Personal (Laziness, physical ailments).</li>
-                    <li><strong>Ādhidaivika:</strong> Nature/Technical (Heavy rain, Wi-Fi failure).</li>
-                    <li><strong>Ādhibhautika:</strong> Others (Unexpected distractions from friends).</li>
+                    <li><strong>Ramayana:</strong> Demonstrates the Vedic command <span class="iast">pitṛ-devo bhava</span> (Treat your father as God). Lord Rāma’s acceptance of a 14-year exile without a single complaint is the practical proof of this theory.</li>
+                    <li><strong>Mahabharata:</strong> Known as the <span class="iast">Pañcamo Veda</span> (Fifth Veda), it provides the context for the <span class="iast">Viṣṇu Sahasranāma</span> in <strong>Chapter 149 of the Anuśāsana Parva</strong>.</li>
                 </ul>
             </div>
-            <h2>The First Sloka Meanings</h2>
-            <p><strong>Śuklāmbaradharaṃ:</strong> White clothes (purity) or the sky as a garment.<br>
-            <strong>Śaśivarṇaṃ:</strong> Moon-like color, representing a soothing presence.</p>
+
+            <h2>Status: Gītā vs. Sahasranāmam</h2>
+            <p>The Guru highlights a subtle distinction: while the <strong>Bhagavad Gītā</strong> was delivered to a confused Arjuna at the <em>beginning</em> of the war to prompt action (<span class="iast">anuśāsana</span>), the <strong>Viṣṇu Sahasranāma</strong> was delivered by Bhīṣma at the <em>end</em> of the war to provide ultimate peace and liberation (<span class="iast">mokṣa</span>). Adi Śaṅkara argues that chanting the names is superior for the common person because it requires no difficult rituals, only the movement of the tongue.</p>
         </div>
 
-        <div id="p4" class="content-section">
-            <h1>Viswaksena: The Divine CEO</h1>
-            <p>Viswaksena is the Chief Executive Officer of <span class="iast">Mahāviṣṇu</span>. In Tirumala, he inspects arrangements before festivals.</p>
-            <p><strong>Shattering Obstacles:</strong> By taking shelter under him (<span class="iast">Vane vishvakshenam tam prapadye</span>), hundreds of obstacles are shattered by his army of elephant-faced or lion-faced attendants.</p>
-        </div>
+        <div id="m2" class="content-section">
+            <h1>Obstacles and Divine Psychology</h1>
+            <p>The first śloka is dedicated to <span class="iast">Sarva-vighnopaśāntaye</span>—the pacification of all hurdles. Guruji introduces the concept of <strong>Divine Jealousy</strong>. He explains that human birth is extremely rare and efficient; a human can reach <span class="iast">Mokṣa</span> in a mere 100 years. In contrast, even a high deity like <strong>Indra</strong> must live for a <span class="iast">Manvantara</span> (approximately 306 million years) and still may not reach liberation. This discrepancy leads the devatas to test a seeker’s determination through obstacles.</p>
 
-        <div id="p5" class="content-section">
-            <h1>Gratitude to Vyāsa Bhagavān</h1>
-            <p>The second principle of the prelude is gratitude. Sage Vyāsa's formal name is <strong>Kṛṣṇa Dvaipāyana</strong> (born on an island). He is one of the three "Krishnas" in the epic, alongside the Lord and Draupadī.</p>
-            <p><strong>Lineage:</strong> Vasiṣṭha → Śakti → Parāśara → Vyāsa. He is <span class="iast">Akalmaṣam</span> (absolutely pure).</p>
-        </div>
-
-        <div id="p6" class="content-section">
-            <h1>Ṣaḍripu: Internal Enemies</h1>
-            <p>The Lord is <span class="iast">Jiṣṇu</span> (Victorious) over the six internal enemies: <strong>Kāma, Krodha, Lobha, Moha, Mada, Mātsarya</strong>.</p>
             <div class="highlight-box">
-                <span class="analogy-tag">The Sun & Clouds Analogy</span>
-                <p>The Atma is naturally full of Bliss (<span class="iast">Ānanda</span>). Just as clouds hide the sun, desires cover the Atma. When a desire is fulfilled and vanishes, the covering is removed momentarily, and we enjoy our own inherent happiness.</p>
+                <span class="analogy-label">The Tapatrayas (Triple Fires)</span>
+                <p>Obstacles are classified into three distinct categories that must be pacified before spiritual study:</p>
+                <ul>
+                    <li><strong>Ādhyātmika:</strong> Internal obstacles originating from one's own body and mind, such as physical illness, lethargy (<span class="iast">alasya</span>), or lack of concentration.</li>
+                    <li><strong>Ādhidaivika:</strong> External obstacles from nature or unseen forces, such as thunderstorms, power outages, or technical glitches during a session.</li>
+                    <li><strong>Ādhibhautika:</strong> Obstacles caused by other living beings, such as a noisy neighbor, a distracting phone call, or family obligations.</li>
+                </ul>
+            </div>
+            <p>The meditation begins on the Lord as <span class="iast">Śuklāmbaradharaṃ</span>. Here, <span class="iast">Ambara</span> can mean "clothes" (white purity) or "sky" (space), indicating that the Lord’s physical garment is the entire infinite space of the universe.</p>
+        </div>
+
+        <div id="m3" class="content-section">
+            <h1>Viswaksena and Sage Vyāsa</h1>
+            <p>The second śloka invokes <strong>Viswaksena</strong>, the <span class="iast">Senāpati</span> (Commander-in-Chief). Guruji uses a modern corporate analogy: if Mahāviṣṇu is the Chairman, Viswaksena is the <strong>CEO</strong>. In the Tirumala temple tradition, it is Viswaksena who first inspects the town and the arrangements before the Lord’s chariot moves. He clears the physical and spiritual path of the devotee.</p>
+
+            <div class="highlight-box">
+                <span class="analogy-label">The Lineage of Purity</span>
+                <p>We then offer gratitude to the author, <strong>Vyāsa Bhagavān</strong>, also known as <span class="iast">Kṛṣṇa Dvaipāyana</span>. He is described as <span class="iast">Akalmaṣam</span> (unstained). This purity is attributed to his impeccable lineage:</p>
+                <ul>
+                    <li><strong>Vasiṣṭha:</strong> His great-grandfather, the mind-born son of Brahma.</li>
+                    <li><strong>Śakti:</strong> His grandfather.</li>
+                    <li><strong>Parāśara:</strong> His father, the author of the Viṣṇu Purāṇa.</li>
+                    <li><strong>Vyāsa:</strong> The classifier of the Vedas and author of the Mahābhārata.</li>
+                </ul>
+                <p>Guruji notes that there are **Three Krishnas** in the Epic: Lord Kṛṣṇa, Sage Vyāsa, and Draupadī (Kṛṣṇā), all manifesting to protect Dharma.</p>
             </div>
         </div>
 
-        <div id="p7" class="content-section">
-            <h1>Karma & The Cow-Rope Theory</h1>
-            <p>The physical body is a tool to exhaust <span class="iast">Prārabdha Karma</span>. Guruji addresses the balance of predestination vs. free will.</p>
+        <div id="m4" class="content-section">
+            <h1>Psychology of Desire and Wonder</h1>
+            <p>The Lord is hailed as <strong>Jiṣṇu</strong>—the Victorious. This victory is not over external kingdoms, but over the <strong>Ṣaḍripus</strong> (Six Internal Enemies): <span class="iast">Kāma</span> (Desire), <span class="iast">Krodha</span> (Anger), <span class="iast">Lobha</span> (Greed), <span class="iast">Moha</span> (Delusion), <span class="iast">Mada</span> (Pride), and <span class="iast">Mātsarya</span> (Envy).</p>
+
             <div class="highlight-box">
-                <span class="analogy-tag">The Cow-and-Rope Analogy</span>
-                <p>A cow tied to a rope has freedom only within that radius. Likewise, our life events may be predestined, but <strong>how we react</strong> to them is our free will. Choosing not to retaliate helps exhaust karma rather than adding to it.</p>
+                <span class="analogy-label">The Cloud and Sun Analogy</span>
+                <p>Guruji explains the mechanics of happiness: our true nature is <span class="iast">Ānanda</span> (Bliss). Desires are like clouds that cover the sun (the Atma). When a desire is fulfilled, that "cloud" disappears for a split second. In that gap, the light of our own inherent bliss shines through. We falsely attribute that happiness to the external object (like a new car), but the joy actually came from our own self because the desire-cloud was momentarily gone.</p>
+            </div>
+
+            <h2>The Greatest Wonder (<span class="iast">Yaksha Prashna</span>)</h2>
+            <p>In the <strong>Yaksha Prashna</strong>, the Yaksha asks Yudhiṣṭhira: "What is the most amazing thing in the world?" Yudhiṣṭhira responds that every single day, we see living beings departing to the abode of Yama, yet those who remain believe they are permanent. This false sense of permanence is <span class="iast">Moha</span>. Chanting the Sahasranāma is a systematic method to dissolve this delusion.</p>
+        </div>
+
+        <div id="m5" class="content-section">
+            <h1>Karma Dynamics and Global Insulation</h1>
+            <p>Guruji clarifies the role of the physical body: it is a vehicle to exhaust <strong>Prārabdha Karma</strong>. He addresses the perennial question—if everything is predestined, why should we act? He provides the definitive answer through a rural analogy.</p>
+
+            <div class="highlight-box">
+                <span class="analogy-label">The Cow and the Rope</span>
+                <p>A cow tied to a stake by a rope has a fixed radius. It cannot go beyond that radius (this is <strong>Destiny</strong> or <span class="iast">Vidhi</span>). However, within that circle, the cow is completely free to sit, stand, eat, or move (this is <strong>Free Will</strong>). If a predestined event occurs—for example, someone insults you—that is the "rope." But whether you choose to react with anger or respond with prayer is your Free Will. By choosing not to react, you exhaust the karma and do not create a new rope for the future.</p>
+            </div>
+
+            <div class="highlight-box">
+                <span class="analogy-label">The Slipper Analogy</span>
+                <p>We cannot clean the entire world or stop global wars, just as we cannot carpet the entire earth to protect our feet. Instead, we wear <strong>slippers</strong>. Chanting the Sahasranāma is the spiritual slipper. It doesn't necessarily change the "road" of the world, but it insulates the devotee's mind so they can walk through the chaos untouched.</p>
             </div>
         </div>
 
-        <div id="p8" class="content-section">
-            <h1>Insulation, Arghya & Food</h1>
-            <div class="highlight-box">
-                <span class="analogy-tag">The Slipper Analogy</span>
-                <p>One wears slippers to protect feet from a dirty road rather than trying to clean the whole road. Chanting is the "slipper" that insulates a devotee from the chaos of Kali Yuga.</p>
-            </div>
-            <h2>The Spiritual Impact of Food</h2>
-            <p>Food subtle thoughts affect the mind. Guruji shares a story where political thoughts arose in a student because the cook was reading the newspaper while cooking. One must chant while cooking to purify the vibrations.</p>
+        <div id="m6" class="content-section">
+            <h1>Food subtle Effects and Eclipse Rituals</h1>
+            <p>The subtle portion of food becomes the mind. Therefore, the thoughts of the person preparing and serving the food are of paramount importance. Guruji recounts a famous incident involving <strong>Swami Shivananda’s</strong> cook. The cook had a habit of reading sensational newspapers while cooking. Consequently, the disciples began having restless, political thoughts. To prevent this, Guruji insists that those cooking should chant the Sahasranāma, turning the meal into <span class="iast">Prasādam</span>.</p>
+
+            <h2>Lunar Eclipse Guidance (March 3rd)</h2>
+            <p>Guruji emphasizes that spiritual practices are exponentially more powerful during a lunar eclipse. 
+            <ul>
+                <li><strong>Timing:</strong> March 3rd, from 3:00 PM to 6:47 PM.</li>
+                <li><strong>Practice:</strong> One should chant the entire Sahasranāma multiple times during this window.</li>
+                <li><strong>Ritual:</strong> Following the eclipse, perform a <span class="iast">Mokṣa Snānam</span> (a ritual bath) to cleanse the subtle body and finalize the merits of the chanting.</li>
+            </ul>
+            </p>
         </div>
 
         <div id="vid" class="content-section">
-            <h1>Full Day 2 Video Discourse</h1>
+            <h1>Full Day 2 Discourse</h1>
             <div class="video-wrapper">
                 <iframe src="https://www.youtube.com/embed/5GrhAx-6Tqw" allowfullscreen></iframe>
             </div>
         </div>
 
-        <div class="footer-nav">
-            <a href="index.html" class="nav-btn">← Back to Home</a>
-            <a href="day3.html" class="nav-btn">Day 3 Next →</a>
-        </div>
     </div>
 </div>
 
