@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 6 - Viṣṇu Sahasranāma VISVAS B</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --accent-saffron: #FF9933;
+            --deep-sidebar: #1a1a1a;
+            --text-primary: #2c3e50;
+            --bg-main: #F7F8FA;
+        }
+
+        body { font-family: 'Inter', sans-serif; margin: 0; display: flex; flex-direction: column; height: 100vh; background: var(--bg-main); color: var(--text-primary); overflow: hidden; }
+
+        .top-bar { height: 95px; background: #fff; border-bottom: 3px solid var(--accent-saffron); display: flex; align-items: center; padding: 0 40px; justify-content: space-between; z-index: 1000; box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
+        .logo-area { text-decoration: none; display: flex; flex-direction: column; gap: 4px; }
+        .logo-main { font-weight: 800; font-size: 19px; color: var(--deep-sidebar); }
+        .logo-main span { color: var(--accent-saffron); }
+        .logo-sub { font-size: 17px; font-weight: 700; color: #000; display: flex; align-items: center; gap: 10px; }
+        .logo-sub::before { content: ""; display: inline-block; width: 18px; height: 3px; background: var(--accent-saffron); border-radius: 2px; }
+
+        .day-menu-container { display: flex; gap: 12px; }
+        .day-tab { padding: 10px 24px; border-radius: 25px; font-size: 13px; cursor: pointer; border: 1px solid #e0e0e0; background: white; text-decoration: none; color: #555; font-weight: 600; }
+        .day-tab.active { background: var(--accent-saffron); color: white; border-color: var(--accent-saffron); }
+
+        .app-body { display: flex; flex: 1; overflow: hidden; }
+        .sidebar { width: 380px; background: var(--deep-sidebar); color: #fff; display: flex; flex-direction: column; border-right: 1px solid #333; }
+        .sidebar-header { padding: 25px; border-bottom: 1px solid #333; font-size: 11px; color: var(--accent-saffron); letter-spacing: 2px; text-transform: uppercase; font-weight: 700; }
+        .nav-list { overflow-y: auto; flex: 1; padding: 10px 0; }
+        .nav-item { padding: 20px 25px; cursor: pointer; font-size: 14px; color: #bbb; border-left: 4px solid transparent; transition: 0.2s; border-bottom: 1px solid #252525; line-height: 1.5; }
+        .nav-item:hover { background: #262626; color: #fff; }
+        .nav-item.active { background: #262626; color: var(--accent-saffron); border-left: 4px solid var(--accent-saffron); font-weight: 700; }
+
+        .main-content { flex: 1; padding: 40px 100px; overflow-y: auto; background: var(--bg-main); scroll-behavior: smooth; }
+        .content-section { display: none; max-width: 1050px; margin: 0 auto; padding-bottom: 150px; }
+        .content-section.active { display: block; animation: fadeIn 0.4s ease-out; }
+
+        h1 { font-size: 34px; color: #1a1a1a; margin-bottom: 25px; border-bottom: 4px solid var(--accent-saffron); padding-bottom: 15px; }
+        h2 { font-size: 24px; color: var(--deep-sidebar); margin-top: 40px; margin-bottom: 20px; font-weight: 800; border-left: 6px solid var(--accent-saffron); padding-left: 20px; }
+        p { line-height: 1.8; font-size: 18px; color: #333; margin-bottom: 25px; text-align: justify; }
+        .iast { font-family: 'Georgia', serif; font-style: italic; color: #c0392b; font-weight: 600; }
+        
+        .highlight-box { background: #fff; border-radius: 18px; padding: 35px; border-left: 10px solid var(--accent-saffron); box-shadow: 0 10px 30px rgba(0,0,0,0.05); margin: 35px 0; position: relative; }
+        .analogy-label { position: absolute; top: -14px; left: 25px; background: var(--accent-saffron); color: white; padding: 5px 15px; border-radius: 5px; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; }
+
+        ul { line-height: 1.8; font-size: 18px; color: #333; margin-bottom: 25px; }
+        li { margin-bottom: 12px; }
+
+        .video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 20px; background: #000; margin: 50px 0; box-shadow: 0 20px 40px rgba(0,0,0,0.2); }
+        .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+<body>
+
+<div class="top-bar">
+    <a href="index.html" class="logo-area">
+        <div class="logo-main"><span>ॐ</span> Viṣṇu Sahasranāma VISVAS B</div>
+        <div class="logo-sub">Shri. Ramabhadran V Guruji</div>
+    </a>
+    <div class="day-menu-container">
+        <a href="day4.html" class="day-tab">DAY 4</a>
+        <a href="day5.html" class="day-tab">DAY 5</a>
+        <a href="day6.html" class="day-tab active">DAY 6</a>
+    </div>
+</div>
+
+<div class="app-body">
+    <div class="sidebar">
+        <div class="sidebar-header">Core Study: The Thousand Names</div>
+        <div class="nav-list">
+            <div class="nav-item active" onclick="showPart('m1')">Classification & Commentaries</div>
+            <div class="nav-item" onclick="showPart('m2')">Viśvam: The First Name & Three Causes</div>
+            <div class="nav-item" onclick="showPart('m3')">Viṣṇu: Entering the Creation</div>
+            <div class="nav-item" onclick="showPart('m4')">Extracting Ghee: The Realization Process</div>
+            <div class="nav-item" onclick="showPart('m5')">Bhagavān: The Six Divine Qualities</div>
+            <div class="nav-item" onclick="showPart('m6')">Philosophical Schools & The Rope Analogy</div>
+            <div class="nav-item" onclick="showPart('m7')">The Cell Phone Analogy: Cit, Acit, Ishvara</div>
+            <div class="nav-item" onclick="showPart('m8')">Q&A: Practical Devotion & Rama Mantra</div>
+            <div class="nav-item" onclick="showPart('vid')" style="color:#ff4b2b; font-weight:bold; border-top: 1px solid #333; margin-top: 15px; padding-top: 25px;">▶ WATCH FULL VIDEO</div>
+        </div>
+    </div>
+
+    <div class="main-content" id="mainContent">
+        
+        <div id="m1" class="content-section active">
+            <h1>Foundations & Classification</h1>
+            <p>Day 6 begins the transition into the core study of the names. Guruji notes that the names are categorized into four distinct types:</p>
+            <ul>
+                <li><strong>Svarūpa:</strong> Inner nature, characterized as <em>Sat-Cit-Ānanda</em> (Existence, Consciousness, Bliss).</li>
+                <li><strong>Rūpa:</strong> Physical forms assumed across various incarnations.</li>
+                <li><strong>Guṇa:</strong> Divine attributes, such as boundless love for devotees.</li>
+                <li><strong>Vibhava:</strong> Divine activities or sports (Leelas) performed as Rāma or Kṛṣṇa.</li>
+            </ul>
+            <h2>Historical Commentaries</h2>
+            <p>The study relies on three primary pillars of philosophy:</p>
+            <ul>
+                <li><strong>Advaita:</strong> Represented by Adi Śaṅkarācārya, who completed his commentary in just two days.</li>
+                <li><strong>Viśiṣṭādvaita:</strong> Represented by Parāśara Bhaṭṭa, son of Kureśa.</li>
+                <li><strong>Dvaita:</strong> Represented by Satyasandha (following the lineage of Madhvācārya).</li>
+            </ul>
+        </div>
+
+        <div id="m2" class="content-section">
+            <h1>Viśvam: The First Name & Three Causes</h1>
+            <p>The first name, <strong>Viśvam</strong>, is in the neuter gender. It is derived from the root <em>viś</em> (to enter). It signifies that when the Lord created the universe, He entered it to provide dynamism and function.</p>
+            
+            <div class="highlight-box">
+                <span class="analogy-label">The Potter Analogy</span>
+                <p>To create a pot, you need:</p>
+                <ul>
+                    <li><strong>Upādāna (Material):</strong> The clay.</li>
+                    <li><strong>Nimitta (Efficient):</strong> The potter (intelligence).</li>
+                    <li><strong>Sahakāri (Instrumental):</strong> The wheel and tools.</li>
+                </ul>
+                <p><strong>Bhagavān is unique:</strong> He is all three causes. He does not look for external material; He creates it from Himself, acts as the creator, and uses His own limbs as the tools.</p>
+            </div>
+            
+        </div>
+
+        <div id="m3" class="content-section">
+            <h1>Viṣṇu: Entering the Creation</h1>
+            <p>The name <strong>Viṣṇu</strong> also signifies entry. He is not limited by <strong>Time</strong> (Past/Present/Future), <strong>Space</strong> (India/USA/Everywhere), or <strong>Objects</strong> (the material of everything comes from Him).</p>
+            
+            <div class="highlight-box">
+                <span class="analogy-label">The Spider Analogy</span>
+                <p>Just as a spider creates a web using material from its own saliva (acting as material, creator, and tool), Bhagavān creates the entire universe from Himself. He is compared to a universal Wi-Fi that operates billions of souls (jīvātmās) through various bodies.</p>
+            </div>
+            
+        </div>
+
+        <div id="m4" class="content-section">
+            <h1>Extracting Ghee: The Realization Process</h1>
+            <p>If God is everywhere, why can't we see Him? Guruji provides the classic "Ghee in Milk" analogy.</p>
+            
+            <div class="highlight-box">
+                <span class="analogy-label">The Spiritual Evolution</span>
+                <ul>
+                    <li><strong>Milk:</strong> Represents the soul being "heated" by worldly struggles (<em>Tapatraya</em>).</li>
+                    <li><strong>Curing:</strong> Adding curd (<em>Satsaṅga</em>) to transform the milk.</li>
+                    <li><strong>Churning:</strong> Cultivating <em>Sāttvika</em> qualities through chanting.</li>
+                    <li><strong>Heat of Meditation:</strong> Finally extracts the <strong>Ghee</strong> (The Divine), which was always present but hidden.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="m5" class="content-section">
+            <h1>Bhagavān: The Six Divine Qualities</h1>
+            <p>Bhagavān is the source of all existence. He possesses the <strong>Ṣaḍguṇa</strong> (Six primary qualities):</p>
+            <ul>
+                <li><strong>Jnana:</strong> Absolute knowledge.</li>
+                <li><strong>Bala:</strong> Strength.</li>
+                <li><strong>Aishvarya:</strong> Lordship and control.</li>
+                <li><strong>Virya:</strong> Valour.</li>
+                <li><strong>Shakti:</strong> Potential/Kinetic energy.</li>
+                <li><strong>Tejas:</strong> Splendor.</li>
+            </ul>
+            <p>He provides for a being's needs even before they are born—such as mother's milk or the nutrients inside an egg. As Mahatma Gandhi noted, the Lord provides for every man's <em>need</em>, but not one man's <em>greed</em>.</p>
+        </div>
+
+        <div id="m6" class="content-section">
+            <h1>Philosophical Schools & The Rope Analogy</h1>
+            <p>Guruji explains how different schools view the Divine presence using the rope and the snake.</p>
+            
+            <div class="highlight-box">
+                <span class="analogy-label">The Illusion of the Snake</span>
+                <p>In the dark, we mistake a rope for a snake and feel fear. When light appears, we realize it was always just a rope. Similarly, <strong>Advaita</strong> posits that Brahman (the rope) supports the illusion of the world (the snake). <strong>Viśiṣṭādvaita</strong> views the world as real but as the body of the Lord.</p>
+            </div>
+            
+        </div>
+
+        <div id="m7" class="content-section">
+            <h1>The Cell Phone Analogy: Cit, Acit, Ishvara</h1>
+            <p>To understand the relationship between the soul and God, Guruji provides a modern analogy:</p>
+            <ul>
+                <li><strong>The Equipment (Acit):</strong> The physical body is the hardware—inert on its own.</li>
+                <li><strong>The SIM Card (Cit):</strong> The individual soul; unique and distinct.</li>
+                <li><strong>The Battery (Īśvara):</strong> The Lord's power; without it, neither the body nor the soul can function.</li>
+            </ul>
+        </div>
+
+        <div id="m8" class="content-section">
+            <h1>Q&A: Practical Insights</h1>
+            <p>The session concludes with practical spiritual remedies and definitions:</p>
+            <ul>
+                <li><strong>Rama Mantra:</strong> Recommended as the best name for constant chanting.</li>
+                <li><strong>Kṣetrajñaḥ:</strong> The Lord as the "knower of the field" (the body).</li>
+                <li><strong>Nandaḥ:</strong> The Lord who feels joy when His devotees are happy, like a parent watching a child.</li>
+                <li><strong>Puruṣaḥ:</strong> The Lord residing in the "city" of the body (which has nine holes).</li>
+            </ul>
+        </div>
+
+        <div id="vid" class="content-section">
+            <h1>Full Day 6 Discourse</h1>
+            <div class="video-wrapper">
+                <iframe src="https://www.youtube.com/embed/IYxuOdaCv88" allowfullscreen></iframe>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script>
+    function showPart(id) {
+        document.querySelectorAll('.content-section').forEach(s => s.classList.remove('active'));
+        document.getElementById(id).classList.add('active');
+        document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+        const activeNav = Array.from(document.querySelectorAll('.nav-item')).find(n => n.getAttribute('onclick').includes(id));
+        if(activeNav) activeNav.classList.add('active');
+        document.getElementById('mainContent').scrollTop = 0;
+    }
+</script>
+</body>
+</html>
